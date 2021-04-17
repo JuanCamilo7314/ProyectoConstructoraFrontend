@@ -1,0 +1,13 @@
+h1 {
+    color: red;
+}
+h4{
+    color: gray;
+}
+.contenedorError{
+    width: 100%;
+    border: 3px solid #7986cb;
+    border-radius: 10px;
+    text-align: center;
+    margin: 2%;
+}
