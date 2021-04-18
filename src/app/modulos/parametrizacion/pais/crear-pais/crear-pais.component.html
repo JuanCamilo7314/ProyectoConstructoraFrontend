@@ -1,1 +1,22 @@
-<p>crear-pais works!</p>
+<div id="crearPais" class="row">
+    <div class="card-panel">
+        <form class="crar-pais-form" [formGroup]="fgValidacion">
+            <div class="titulo">
+                <H4>Crear Pais</H4>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">flag</i>
+                    <input formControlName="pais" class="validate" id="pais" type="text">
+                    <label for="pais" data-error="wrong" data-success="right">Nombre</label>
+                    <div class="mensajeValidacion" *ngIf="(obtenerFGV.pais.errors &&(obtenerFGV.pais.dirty||obtenerFGV.pais.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <p class="center-align">
+                <a class="btn waves-effect indigo darken-1" href="">Crear</a>
+            </p>
+        </form>
+    </div>
+</div>

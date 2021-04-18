@@ -9,8 +9,16 @@ const routes: Routes = [
     component: InicioComponent
   },
   {
+    path: '',
+    component: InicioComponent
+  },
+  {
     path: 'seguridad',
     loadChildren: () => import('./modulos/seguridad/seguridad.module').then(m => m.SeguridadModule)
+  },
+  {
+    path: 'parametrizacion',
+    loadChildren: () => import('./modulos/parametrizacion/parametrizacion.module').then(m => m.ParametrizacionModule)
   },
   {
     path: 'error404',

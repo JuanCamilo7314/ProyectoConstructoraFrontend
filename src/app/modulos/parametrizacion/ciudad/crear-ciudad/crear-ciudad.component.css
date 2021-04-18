@@ -1,0 +1,36 @@
+#crearCiudad{
+    margin-top: 4%;
+    width: 450px;
+}
+
+.input-field .prefix.active {
+    color: #000;
+}
+
+.input-field input:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field input:focus + label {
+    color: #000;
+}
+
+.mensajeValidacion{
+    color: red;
+}
+
+.titulo{
+    text-align: center;
+}
+
+h4{
+    font-weight: bold;
+}
+
+@media(max-width:700px){
+    #crearCiudad{
+        width: 300px;
+        margin-top: 10%;
+    }
+}

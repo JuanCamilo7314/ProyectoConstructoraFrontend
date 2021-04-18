@@ -14,6 +14,7 @@ import { CrearProyectoComponent } from './proyecto/crear-proyecto/crear-proyecto
 import { EditarProyectoComponent } from './proyecto/editar-proyecto/editar-proyecto.component';
 import { EliminarProyectoComponent } from './proyecto/eliminar-proyecto/eliminar-proyecto.component';
 import { ListarProyectoComponent } from './proyecto/listar-proyecto/listar-proyecto.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +34,10 @@ import { ListarProyectoComponent } from './proyecto/listar-proyecto/listar-proye
   ],
   imports: [
     CommonModule,
-    ParametrizacionRoutingModule
+    ParametrizacionRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+    
   ]
 })
 export class ParametrizacionModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-pais',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearPaisComponent implements OnInit {
 
-  constructor() { }
+  fgValidacion: FormGroup = this.fb.group({});
+  constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
+  ConstruirFormulario() {
+    this.fgValidacion = this.fb.group({
+      pais: ['', Validators.required]
+    });
   }
 
+  ngOnInit(): void {
+    this.ConstruirFormulario();
+  }
+
+  get obtenerFGV(){
+    return this.fgValidacion.controls;
+  }
 }

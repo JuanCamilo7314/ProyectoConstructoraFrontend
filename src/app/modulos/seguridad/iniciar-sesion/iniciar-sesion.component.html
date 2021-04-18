@@ -1,18 +1,24 @@
 <div id="login-page" class="row">
     <div class="card-panel">
-        <form class="login-form">
+        <form class="login-form" [formGroup]="fgValidacion">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">mail_outline</i>
-                    <input class="validate" id="email" type="email">
+                    <input formControlName="correo" class="validate" id="email" type="email">
                     <label for="email" data-error="wrong" data-success="right">Correo</label>
+                    <div class="mensajeValidacion" *ngIf="(obtenerFGV.correo.errors &&(obtenerFGV.correo.dirty||obtenerFGV.correo.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">lock_outline</i>
-                    <input id="password" type="password">
+                    <input formControlName="clave" id="password" type="password">
                     <label for="password">Contraseña</label>
+                    <div class="mensajeValidacion" *ngIf="(obtenerFGV.clave.errors &&(obtenerFGV.clave.dirty||obtenerFGV.clave.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
                 </div>
             </div>
             <div class="row">
