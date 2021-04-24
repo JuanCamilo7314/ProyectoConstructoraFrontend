@@ -1,11 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, {});
-  
+  InicializarMenus();
+  InicializarSelect();
 });
 
+function InicializarMenus() {
+  var menus = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(menus, {});
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, {});
-});
+function InicializarSelect() {
+  var selects = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(selects, {});
+}

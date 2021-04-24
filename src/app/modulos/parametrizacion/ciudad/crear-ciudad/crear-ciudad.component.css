@@ -3,6 +3,11 @@
     width: 450px;
 }
 
+label{
+    margin-left: 5px;
+    font-size: 100%;
+}
+
 .input-field .prefix.active {
     color: #000;
 }

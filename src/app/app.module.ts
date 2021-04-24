@@ -9,6 +9,7 @@ import { PiePaginaComponent } from './publico/paginaMaestra/pie-pagina/pie-pagin
 import { InicioComponent } from './publico/inicio/inicio.component';
 import { Error404Component } from './publico/errores/error404/error404.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,7 @@ import { Error404Component } from './publico/errores/error404/error404.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

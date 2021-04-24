@@ -7,7 +7,7 @@ import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
 import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.component';
 import { CambiarClaveComponent } from './cambiar-clave/cambiar-clave.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     SeguridadRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecaptchaModule, RecaptchaFormsModule
   ]
 })
 export class SeguridadModule { }

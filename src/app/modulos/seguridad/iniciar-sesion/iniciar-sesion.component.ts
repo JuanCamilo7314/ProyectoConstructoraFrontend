@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class IniciarSesionComponent implements OnInit {
 
   fgValidacion: FormGroup = this.fb.group({});
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+   }
 
   ConstruirFormulario() {
     this.fgValidacion = this.fb.group({
@@ -26,4 +27,7 @@ export class IniciarSesionComponent implements OnInit {
     return this.fgValidacion.controls;
   }
 
+  resolved(token: any){
+    console.log(token);
+  }
 }
