@@ -21,7 +21,7 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
     SeguridadRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    RecaptchaModule, RecaptchaFormsModule
+    RecaptchaModule, RecaptchaFormsModule,
   ]
 })
 export class SeguridadModule { }

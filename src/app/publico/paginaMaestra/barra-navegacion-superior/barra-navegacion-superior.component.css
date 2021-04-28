@@ -1,3 +1,19 @@
 .brand-logo{
     padding-left: 10px;
 }
+
+.espaciomenus{
+    background-color: #3949ab;
+    color: white;
+    margin-right: -10px;
+    
+}
+.espaciomenus:hover{
+    background-color:#283593;
+ }
+
+.dropdown-content{
+    background-color: white;
+}
+
+

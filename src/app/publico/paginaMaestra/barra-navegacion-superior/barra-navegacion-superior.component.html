@@ -1,20 +1,89 @@
+<nav>
+  <div class="nav-wrapper indigo darken-1">
+    <a routerLink="inicio" class="brand-logo">UdeC S.A.S</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
 
-  <nav>
-    <div class="nav-wrapper indigo darken-1">
-      <a routerLink="inicio" class="brand-logo">UdeC S.A.S</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
-        <li><a routerLink="parametrizacion/pais/crear-pais">Crear Pais</a></li>
-        <li><a routerLink="seguridad/iniciar-sesion">Iniciar Sesion</a></li>
+      <li *ngIf="isAdmin&&isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
+        data-target='dropdown3'>Informes</a></li>
+    <ul id='dropdown3' class='dropdown-content'>
+      <li><a style="color: black;" routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Editar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Eliminar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Listar Ciudad</a></li>
+    </ul>
+
+      <li *ngIf="isAdmin&&isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
+        data-target='dropdown3'>Usuarios</a></li>
+    <ul id='dropdown3' class='dropdown-content'>
+      <li><a style="color: black;" routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Editar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Eliminar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Listar Ciudad</a></li>
+    </ul>
+
+      <li *ngIf="isAdmin&&isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
+        data-target='dropdown3'>Inmuebles</a></li>
+    <ul id='dropdown3' class='dropdown-content'>
+      <li><a style="color: black;" routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Editar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Eliminar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Listar Ciudad</a></li>
+    </ul>
+
+      <li *ngIf="isAdmin&&isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
+        data-target='dropdown3'>Bloques</a></li>
+    <ul id='dropdown3' class='dropdown-content'>
+      <li><a style="color: black;" routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Editar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Eliminar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Listar Ciudad</a></li>
+    </ul>
+
+      <li *ngIf="isAdmin&&isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
+        data-target='dropdown3'>Proyectos</a></li>
+    <ul id='dropdown3' class='dropdown-content'>
+      <li><a style="color: black;" routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Editar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Eliminar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Listar Ciudad</a></li>
+    </ul>
+
+      <li *ngIf="isAdmin&&isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
+        data-target='dropdown3'>Ciudades</a></li>
+    <ul id='dropdown3' class='dropdown-content'>
+      <li><a style="color: black;" routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Editar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Eliminar Ciudad</a></li>
+      <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Listar Ciudad</a></li>
+    </ul>
+
+      <li *ngIf="isAdmin&&isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
+          data-target='dropdown2'>Paises</a></li>
+      <ul id='dropdown2' class='dropdown-content'>
+        <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Crear Pais</a></li>
+        <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Editar Pais</a></li>
+        <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Eliminar Pais</a></li>
+        <li><a style="color: black;" routerLink="parametrizacion/pais/crear-pais">Listar Pais</a></li>
       </ul>
-    </div>
-  </nav>
 
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
-    <li><a routerLink="parametrizacion/pais/crear-pais">Crear Pais</a></li>
-    <li><a routerLink="seguridad/iniciar-sesion">Iniciar Sesion</a></li>
-  </ul>
+      <li *ngIf="!isLogged"><a routerLink="seguridad/iniciar-sesion">Iniciar Sesion</a></li>
+
+      <li *ngIf="isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
+          data-target='dropdown1'>Juan Camilo Uni</a></li>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a class="cambiarcontra" style="color: black;" routerLink="seguridad/cambiar-clave">Cambiar Contraseña</a>
+        </li>
+        <li><a class="cerrarsesion" style="color: black;" routerLink="seguridad/cerrar-sesion">Cerrar Sesion</a></li>
+      </ul>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="sass.html">Sass</a></li>
+  <li><a routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
+  <li><a routerLink="parametrizacion/pais/crear-pais">Crear Pais</a></li>
+  <li *ngIf="!isLogged"><a routerLink="seguridad/iniciar-sesion">Iniciar Sesion</a></li>
+  <li *ngIf="isLogged"><a routerLink="seguridad/cerrar-sesion">Cerrar Sesion</a></li>
+</ul>
