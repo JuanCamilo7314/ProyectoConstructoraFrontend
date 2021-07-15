@@ -5,6 +5,8 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { datosUsuarioModel } from '../modelos/datosUsuario.model';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { CambioClaveModel } from '../modelos/cambioClave.model';
+import { RecuperarClaveModel } from '../modelos/recuperarClave.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +37,28 @@ export class SecurityService {
     return this.userData.asObservable();
   }
 
+  getUserInfo(){
+    return this.userData;
+  }
+
   IniciarSesion(model: UsuarioModel): Observable<datosUsuarioModel>{
     return this.http.post<datosUsuarioModel>('http://localhost:3000/login',model,{
+      headers: new HttpHeaders({
+        
+      })
+    })
+  }
+
+  RecuperarClave(model: RecuperarClaveModel): Observable<RecuperarClaveModel>{
+    return this.http.post<RecuperarClaveModel>('http://localhost:3000/reset-password',model,{
+      headers: new HttpHeaders({
+        
+      })
+    })
+  }
+
+  CambiarClave(model: CambioClaveModel): Observable<CambioClaveModel>{
+    return this.http.put<CambioClaveModel>('http://localhost:3000/cambio-clave',model,{
       headers: new HttpHeaders({
         
       })

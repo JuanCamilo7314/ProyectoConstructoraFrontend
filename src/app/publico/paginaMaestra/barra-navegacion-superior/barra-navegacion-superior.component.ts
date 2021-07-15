@@ -13,6 +13,8 @@ export class BarraNavegacionSuperiorComponent implements OnInit {
   isAdmin: Boolean = false;
   isLogged: Boolean = false;
   subscription: Subscription = new Subscription;
+  FirstName: string = "";
+  LastName: string = "";
 
   constructor(
     private service: SecurityService
@@ -23,6 +25,8 @@ export class BarraNavegacionSuperiorComponent implements OnInit {
       this.isLogged = data.isLogged;
       if (this.isLogged==true) {
         let x: any = data;
+        this.FirstName = x.user.NombreU;
+        this.LastName = x.user.ApellidoU;
         if (x.user.rolId=="6079f12427f72e71196cee9e") {
           console.log("no soy admin :(");
           this.isAdmin=false;

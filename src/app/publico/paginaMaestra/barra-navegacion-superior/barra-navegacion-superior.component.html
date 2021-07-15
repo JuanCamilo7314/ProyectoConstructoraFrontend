@@ -68,9 +68,8 @@
       </ul>
 
       <li *ngIf="!isLogged"><a routerLink="seguridad/iniciar-sesion">Iniciar Sesion</a></li>
-
       <li *ngIf="isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
-          data-target='dropdown1'>Juan Camilo Uni</a></li>
+          data-target='dropdown1'>{{ FirstName }} {{ LastName }}</a></li>
       <ul id='dropdown1' class='dropdown-content'>
         <li><a class="cambiarcontra" style="color: black;" routerLink="seguridad/cambiar-clave">Cambiar Contraseña</a>
         </li>

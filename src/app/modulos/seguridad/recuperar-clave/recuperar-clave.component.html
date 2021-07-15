@@ -1,1 +1,22 @@
-<p>recuperar-clave works!</p>
+<div id="recuperar-clave" class="row">
+    <div class="card-panel">
+        <form class="login-form" [formGroup]="fgValidacion">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mail_outline</i>
+                    <input formControlName="correo" class="validate" id="email" type="email">
+                    <label for="email" data-error="wrong" data-success="right">Correo</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.correo.errors &&(obtenerFGV.correo.dirty||obtenerFGV.correo.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s7">
+                    <button type="button" (click)="RecuperarClave()" class="btn waves-effect indigo darken-1 col s8">Ingresar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

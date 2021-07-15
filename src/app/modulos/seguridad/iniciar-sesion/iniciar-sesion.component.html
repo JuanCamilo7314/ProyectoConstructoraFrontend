@@ -35,7 +35,7 @@
                     <button type="button" (click)="IniciarSesion()" class="btn waves-effect indigo darken-1 col s8">Ingresar</button>
                 </div>
                 <div class="">
-                    <p class="recuperar"><a style="color:#3949ab;" href="">Recuperar Contraseña?</a></p>
+                    <p class="recuperar"><a class="recuperarClave" style="color:#3949ab;" [routerLink]="['/seguridad/recuperar-clave']">Recuperar Contraseña?</a></p>
                 </div>
             </div>
         </form>
