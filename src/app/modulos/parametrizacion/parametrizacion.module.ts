@@ -15,6 +15,14 @@ import { EditarProyectoComponent } from './proyecto/editar-proyecto/editar-proye
 import { EliminarProyectoComponent } from './proyecto/eliminar-proyecto/eliminar-proyecto.component';
 import { ListarProyectoComponent } from './proyecto/listar-proyecto/listar-proyecto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CrearBloqueComponent } from './bloque/crear-bloque/crear-bloque.component';
+import { EditarBloqueComponent } from './bloque/editar-bloque/editar-bloque.component';
+import { ListarBloqueComponent } from './bloque/listar-bloque/listar-bloque.component';
+import { EliminarBloqueComponent } from './bloque/eliminar-bloque/eliminar-bloque.component';
+import { CrearInmuebleComponent } from './inmueble/crear-inmueble/crear-inmueble.component';
+import { EditarInmuebleComponent } from './inmueble/editar-inmueble/editar-inmueble.component';
+import { ListarInmuebleComponent } from './inmueble/listar-inmueble/listar-inmueble.component';
+import { EliminarInmuebleComponent } from './inmueble/eliminar-inmueble/eliminar-inmueble.component';
 
 
 @NgModule({
@@ -30,7 +38,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CrearProyectoComponent,
     EditarProyectoComponent,
     EliminarProyectoComponent,
-    ListarProyectoComponent
+    ListarProyectoComponent,
+    CrearBloqueComponent,
+    EditarBloqueComponent,
+    ListarBloqueComponent,
+    EliminarBloqueComponent,
+    CrearInmuebleComponent,
+    EditarInmuebleComponent,
+    ListarInmuebleComponent,
+    EliminarInmuebleComponent
   ],
   imports: [
     CommonModule,
