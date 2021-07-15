@@ -27,7 +27,7 @@ export class BarraNavegacionSuperiorComponent implements OnInit {
         let x: any = data;
         this.FirstName = x.user.NombreU;
         this.LastName = x.user.ApellidoU;
-        if (x.user.rolId=="6079f12427f72e71196cee9e") {
+        if (x.user.rolId=="608325b4855f1d6c1048f7bf") {
           console.log("no soy admin :(");
           this.isAdmin=false;
         }else{

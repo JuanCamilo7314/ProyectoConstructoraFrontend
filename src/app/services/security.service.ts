@@ -77,6 +77,11 @@ export class SecurityService {
     }
   }
 
+  obtenerToken(){
+    let usuariostorage:any= (this.getUserInfo().value);
+    return usuariostorage.token;
+  }
+
   obtenerInicioSesion(){
     let sesionActual = localStorage.getItem('sesion');
     return sesionActual; 

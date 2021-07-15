@@ -7,16 +7,21 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">flag</i>
-                    <input formControlName="pais" class="validate" id="pais" type="text">
+                    <input formControlName="nombre" class="validate" id="pais" type="text">
                     <label for="pais" data-error="wrong" data-success="right">Nombre</label>
-                    <div class="mensajeValidacion" *ngIf="(obtenerFGV.pais.errors &&(obtenerFGV.pais.dirty||obtenerFGV.pais.touched))">
+                    <div class="mensajeValidacion" *ngIf="(obtenerFGV.nombre.errors &&(obtenerFGV.nombre.dirty||obtenerFGV.nombre.touched))">
                         <strong>Este campo es requerido.</strong>
                     </div>
                 </div>
             </div>
-            <p class="center-align">
-                <a class="btn waves-effect indigo darken-1" href="">Crear</a>
-            </p>
+            <div class="row">
+                <div class="crear col s7">
+                    <button [disabled]="obtenerFGV.nombre.errors" type="button" class="btn waves-effect indigo darken-1 col s8" (click)="GuardarRegistro()">Crear</button>
+                </div>
+                <div class="cancelar col s7">
+                    <button type="button" class=" btn waves-effect indigo darken-1 col s8">Cancelar</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>

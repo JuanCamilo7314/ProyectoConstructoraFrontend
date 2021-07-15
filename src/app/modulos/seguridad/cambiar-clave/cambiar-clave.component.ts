@@ -41,6 +41,7 @@ export class CambiarClaveComponent implements OnInit {
     } else {
       let model = this.getcambioClaveModel();
       let usuariostorage:any= (this.service.getUserInfo().value);
+      console.log(usuariostorage.token);
       if(usuariostorage.user.EmailU==model.EmailU){
         this.service.CambiarClave(model).subscribe(data => {
           console.log(data);
