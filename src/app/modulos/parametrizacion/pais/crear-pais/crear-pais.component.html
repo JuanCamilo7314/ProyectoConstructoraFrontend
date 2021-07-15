@@ -14,12 +14,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="crear col s7">
-                    <button [disabled]="obtenerFGV.nombre.errors" type="button" class="btn waves-effect indigo darken-1 col s8" (click)="GuardarRegistro()">Crear</button>
-                </div>
-                <div class="cancelar col s7">
-                    <button type="button" class=" btn waves-effect indigo darken-1 col s8">Cancelar</button>
+            <div class="">
+                <div class="botonesayc">
+                    <button  [disabled]="obtenerFGV.nombre.errors" type="button" class="botoncrear btn waves-effect indigo darken-1" (click)="GuardarRegistro()">Crear</button>
+                    &nbsp;
+                    <button type="button" class="btn waves-effect indigo darken-1 ">Cancelar</button>
                 </div>
             </div>
         </form>

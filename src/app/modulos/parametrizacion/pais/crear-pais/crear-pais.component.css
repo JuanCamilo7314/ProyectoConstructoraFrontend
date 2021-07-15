@@ -3,8 +3,8 @@
     width: 450px;
 }
 
-.crear{
-    padding-left: 20px;
+.botoncrear{
+    width: 100px;
 }
 
 .input-field .prefix.active {
@@ -36,10 +36,6 @@ h4{
     #crearPais{
         width: 300px;
         margin-top: 10%;
-    }
-
-    .crear{
-        padding-left: 65px;
     }
 
 }
