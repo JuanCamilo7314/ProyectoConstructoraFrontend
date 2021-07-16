@@ -1,7 +1,8 @@
 export class ProyectoModel{
     CodigoProy?: number;
-    NombreProy?: String;
-    DescripcionProy?: String;
-    DImagen?: String;
+    NombreProy?: string;
+    DescripcionProy?: string;
+    DImagen?: string;
     ciudadId?: number;
+    NombreC?: string;
 }
