@@ -49,7 +49,7 @@ export class PaisService {
   }
 
   ListarPaises(): Observable<PaisModel[]>{
-    return this.http.get<PaisModel[]>("http://localhost:3000/paises/",{
+    return this.http.get<PaisModel[]>("http://localhost:3000/paises",{
       headers: new HttpHeaders({
       })
     })

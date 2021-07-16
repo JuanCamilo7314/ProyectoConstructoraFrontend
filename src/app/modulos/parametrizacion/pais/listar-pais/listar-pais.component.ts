@@ -31,7 +31,7 @@ export class ListarPaisComponent implements OnInit {
       model.NombreP = nombre;
       this.service.EliminarPais(model).subscribe(
         (datos)=>{
-          alert("Registro" +nombre+ "Eliminado")
+          alert("Registro " +nombre+ " Eliminado")
           this.listaRegistros = this.listaRegistros.filter(x =>x.CodigoP != id);
         },
         (error)=>{

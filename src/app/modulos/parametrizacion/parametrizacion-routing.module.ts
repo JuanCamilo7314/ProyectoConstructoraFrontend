@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CrearCiudadComponent } from './ciudad/crear-ciudad/crear-ciudad.component';
+import { EditarCiudadComponent } from './ciudad/editar-ciudad/editar-ciudad.component';
 import { ListarCiudadComponent } from './ciudad/listar-ciudad/listar-ciudad.component';
 import { CrearPaisComponent } from './pais/crear-pais/crear-pais.component';
 import { EditarPaisComponent } from './pais/editar-pais/editar-pais.component';
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path: 'ciudad/listar-ciudad',
     component: ListarCiudadComponent
+  },
+
+  {
+    path: 'ciudad/editar-ciudad/:id',
+    component: EditarCiudadComponent
   }
 ];
 

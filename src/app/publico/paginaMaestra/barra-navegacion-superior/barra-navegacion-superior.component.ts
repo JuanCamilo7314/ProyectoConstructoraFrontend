@@ -35,7 +35,6 @@ export class BarraNavegacionSuperiorComponent implements OnInit {
         }
       }
 
-
     });
   }
 
