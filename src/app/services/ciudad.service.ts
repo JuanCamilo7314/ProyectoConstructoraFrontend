@@ -9,47 +9,54 @@ import { SecurityService } from './security.service';
 })
 export class CiudadService {
 
-  paisData = new BehaviorSubject<CiudadModel>({} as any);
+  ciudadData = new BehaviorSubject<CiudadModel>({} as any);
   token: string = "";
 
-  constructor(private http: HttpClient, 
-    private servicioSeguridad: SecurityService) { 
-      this.token = servicioSeguridad.obtenerToken();
+  constructor(private http: HttpClient,
+    private servicioSeguridad: SecurityService) {
+    this.token = servicioSeguridad.obtenerToken();
+  }
+
+  CrearCiudad(model: CiudadModel): Observable<CiudadModel> {
+    let idPais = 0;
+    if (model.paisId) {
+      idPais = parseInt(model.paisId.toString());
     }
-
-  CrearCiudad(model: CiudadModel): Observable<CiudadModel>{
-    return this.http.post<CiudadModel>('http://localhost:3000/ciudades',model,{
+    return this.http.post<CiudadModel>('http://localhost:3000/ciudades', {
+      nombre: model.NombreC,
+      paisId: idPais
+    }, {
       headers: new HttpHeaders({
-        "Authorization":`Bearer ${this.token}`
+        "Authorization": `Bearer ${this.token}`
       })
     })
   }
 
-  ActualizarCiudad(model: CiudadModel): Observable<CiudadModel>{
-    return this.http.put<CiudadModel>(`http://localhost:3000/ciudades/${model.CodigoC}`,model,{
+  ActualizarCiudad(model: CiudadModel): Observable<CiudadModel> {
+    return this.http.put<CiudadModel>(`http://localhost:3000/ciudades/${model.CodigoC}`, model, {
       headers: new HttpHeaders({
-        "Authorization":`Bearer ${this.token}`
+        "Authorization": `Bearer ${this.token}`
       })
     })
   }
 
-  EliminarCiudad(model: CiudadModel): Observable<any>{
-    return this.http.delete<CiudadModel>(`http://localhost:3000/ciudades/${model.CodigoC}`,{
+  EliminarCiudad(model: CiudadModel): Observable<any> {
+    return this.http.delete<CiudadModel>(`http://localhost:3000/ciudades/${model.CodigoC}`, {
       headers: new HttpHeaders({
-        "Authorization":`Bearer ${this.token}`
+        "Authorization": `Bearer ${this.token}`
       })
     })
   }
 
-  BuscarCiudad(id: number): Observable<CiudadModel>{
-    return this.http.get<CiudadModel>(`http://localhost:3000/ciudades/${id}`,{
+  BuscarCiudad(id: number): Observable<CiudadModel> {
+    return this.http.get<CiudadModel>(`http://localhost:3000/ciudades/${id}`, {
       headers: new HttpHeaders({
       })
     })
   }
 
-  ListarCiudades(): Observable<CiudadModel[]>{
-    return this.http.get<CiudadModel[]>("http://localhost:3000/ciudades/",{
+  ListarCiudades(): Observable<CiudadModel[]> {
+    return this.http.get<CiudadModel[]>("http://localhost:3000/ciudades/", {
       headers: new HttpHeaders({
       })
     })
