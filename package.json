@@ -23,6 +23,7 @@
     "materialize-css": "^1.0.0-rc.2",
     "ng-recaptcha": "^7.0.1",
     "ngx-captcha": "^9.0.1",
+    "ngx-pagination": "^5.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
