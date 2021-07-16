@@ -21,9 +21,10 @@ export class CiudadService {
     let idPais = 0;
     if (model.paisId) {
       idPais = parseInt(model.paisId.toString());
+      console.log(model);
     }
     return this.http.post<CiudadModel>('http://localhost:3000/ciudades', {
-      nombre: model.NombreC,
+      NombreC: model.NombreC,
       paisId: idPais
     }, {
       headers: new HttpHeaders({
@@ -33,7 +34,15 @@ export class CiudadService {
   }
 
   ActualizarCiudad(model: CiudadModel): Observable<CiudadModel> {
-    return this.http.put<CiudadModel>(`http://localhost:3000/ciudades/${model.CodigoC}`, model, {
+    let idPais = 0;
+    if (model.paisId) {
+      idPais = parseInt(model.paisId.toString());
+      console.log(model);
+    }
+    return this.http.put<CiudadModel>(`http://localhost:3000/ciudades/${model.CodigoC}`, {
+      NombreC: model.NombreC,
+      paisId: idPais
+    }, {
       headers: new HttpHeaders({
         "Authorization": `Bearer ${this.token}`
       })

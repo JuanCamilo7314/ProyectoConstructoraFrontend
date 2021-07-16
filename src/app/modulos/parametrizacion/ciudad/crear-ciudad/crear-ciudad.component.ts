@@ -23,7 +23,7 @@ export class CrearCiudadComponent implements OnInit {
 
   ConstruirFormulario() {
     this.fgValidacion = this.fb.group({
-      nombre: ['', Validators.required],
+      NombreC: ['', Validators.required],
       paisId: ['', Validators.required]
     });
   }
@@ -48,7 +48,7 @@ export class CrearCiudadComponent implements OnInit {
     if (this.fgValidacion.invalid) {
       alert("informacion invalida")
     } else {
-      let nom = this.obtenerFGV.nombre.value;
+      let nom = this.obtenerFGV.NombreC.value;
       let paisId = this.obtenerFGV.paisId.value;
       let obj = new CiudadModel();
       obj.NombreC = nom;

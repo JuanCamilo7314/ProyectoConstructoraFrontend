@@ -7,10 +7,10 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_city</i>
-                    <input formControlName="nombre" class="validate" id="nombre" type="text">
-                    <label for="nombre" data-error="wrong" data-success="right">Nombre</label>
+                    <input formControlName="NombreC" class="validate" id="NombreC" type="text">
+                    <label for="NombreC" data-error="wrong" data-success="right">Nombre</label>
                     <div class="mensajeValidacion"
-                        *ngIf="(obtenerFGV.nombre.errors &&(obtenerFGV.nombre.dirty||obtenerFGV.nombre.touched))">
+                        *ngIf="(obtenerFGV.NombreC.errors &&(obtenerFGV.NombreC.dirty||obtenerFGV.NombreC.touched))">
                         <strong>Este campo es requerido.</strong>
                     </div>
                 </div>

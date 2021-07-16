@@ -1,1 +1,33 @@
-<p>editar-ciudad works!</p>
+<div id="crearCiudad" class="row">
+    <div class="card-panel">
+        <form class="crar-ciudad-form" [formGroup]="fgValidacion">
+            <div class="titulo">
+                <H4>Edición Ciudad</H4>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">flag</i>
+                    <input formControlName="nombre" class="validate" id="nombre" type="text">
+                    <label class="active" for="nombre" data-error="wrong" data-success="right">Nombre</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.nombre.errors &&(obtenerFGV.nombre.dirty||obtenerFGV.nombre.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <label class="active">Pais</label>
+                <select formControlName="paisId" class="browser-default">
+                    <option *ngFor="let p of paisListado" value="{{p.CodigoP}}">{{p.NombreP}}</option>
+                </select>
+            </div>
+            <input formControlName="id" class="validate" id="id" type="hidden">
+            <div class="botonesayc">
+                <button [disabled]="obtenerFGV.nombre.errors || obtenerFGV.id.errors" type="button"
+                    class="botoncrear btn waves-effect indigo darken-1" (click)="ActualizarRegistro()">Actualizar</button>
+                &nbsp;
+                <a routerLink="/parametrizacion/ciudad/listar-ciudad" class="btn waves-effect indigo darken-1 ">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
