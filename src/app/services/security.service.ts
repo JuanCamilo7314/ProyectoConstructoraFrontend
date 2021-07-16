@@ -82,6 +82,15 @@ export class SecurityService {
     return usuariostorage.token;
   }
 
+  mirarToken(){
+    let datos= this.obtenerInicioSesion();
+    if(datos){
+      let objetoDatos: datosUsuarioModel = JSON.parse(datos);
+      return objetoDatos.token;
+    }
+    return "";
+  }
+
   obtenerInicioSesion(){
     let sesionActual = localStorage.getItem('sesion');
     return sesionActual; 

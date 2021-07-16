@@ -1,6 +1,8 @@
+import { PaisModel } from "./pais.model";
+
 export class CiudadModel{
     CodigoC?: number;
     NombreC?: string;
     paisId?: number;
-    NombreP?: string;
+    pais: PaisModel=new PaisModel();
 }

@@ -65,7 +65,7 @@ export class CiudadService {
   }
 
   ListarCiudades(): Observable<CiudadModel[]> {
-    return this.http.get<CiudadModel[]>("http://localhost:3000/ciudades/", {
+    return this.http.get<CiudadModel[]>('http://localhost:3000/ciudades/?filter={"include":["pais"]}', {
       headers: new HttpHeaders({
       })
     })
