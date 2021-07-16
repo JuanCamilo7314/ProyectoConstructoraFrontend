@@ -17,7 +17,7 @@ export class ProyectoService {
     }
 
   
-  CrearPais(model: ProyectoModel): Observable<ProyectoModel>{
+  CrearProyecto(model: ProyectoModel): Observable<ProyectoModel>{
     return this.http.post<ProyectoModel>('http://localhost:3000/proyectos',model,{
       headers: new HttpHeaders({
         "Authorization":`Bearer ${this.token}`
@@ -25,7 +25,7 @@ export class ProyectoService {
     })
   }
 
-  ActualizarPais(model: ProyectoModel): Observable<ProyectoModel>{
+  ActualizarProyecto(model: ProyectoModel): Observable<ProyectoModel>{
     return this.http.put<ProyectoModel>(`http://localhost:3000/proyectos/${model.CodigoProy}`,model,{
       headers: new HttpHeaders({
         "Authorization":`Bearer ${this.token}`
@@ -33,7 +33,7 @@ export class ProyectoService {
     })
   }
 
-  EliminarPais(model: ProyectoModel): Observable<any>{
+  EliminarProyecto(model: ProyectoModel): Observable<any>{
     return this.http.delete<ProyectoModel>(`http://localhost:3000/proyectos/${model.CodigoProy}`,{
       headers: new HttpHeaders({
         "Authorization":`Bearer ${this.token}`
@@ -41,7 +41,7 @@ export class ProyectoService {
     })
   }
 
-  BuscarPais(id: number): Observable<ProyectoModel>{
+  BuscarProyecto(id: number): Observable<ProyectoModel>{
     return this.http.get<ProyectoModel>(`http://localhost:3000/proyectos/${id}`,{
       headers: new HttpHeaders({
       })

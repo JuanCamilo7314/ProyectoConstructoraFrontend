@@ -17,7 +17,7 @@ export class InmuebleService {
     }
 
   
-  CrearPais(model: InmuebleModel): Observable<InmuebleModel>{
+  CrearInmueble(model: InmuebleModel): Observable<InmuebleModel>{
     return this.http.post<InmuebleModel>('http://localhost:3000/inmuebles',model,{
       headers: new HttpHeaders({
         "Authorization":`Bearer ${this.token}`
@@ -25,7 +25,7 @@ export class InmuebleService {
     })
   }
 
-  ActualizarPais(model: InmuebleModel): Observable<InmuebleModel>{
+  ActualizarInmueble(model: InmuebleModel): Observable<InmuebleModel>{
     return this.http.put<InmuebleModel>(`http://localhost:3000/inmuebles/${model.CodigoIn}`,model,{
       headers: new HttpHeaders({
         "Authorization":`Bearer ${this.token}`
@@ -33,7 +33,7 @@ export class InmuebleService {
     })
   }
 
-  EliminarPais(model: InmuebleModel): Observable<any>{
+  EliminarInmueble(model: InmuebleModel): Observable<any>{
     return this.http.delete<InmuebleModel>(`http://localhost:3000/inmuebles/${model.CodigoIn}`,{
       headers: new HttpHeaders({
         "Authorization":`Bearer ${this.token}`
@@ -41,7 +41,7 @@ export class InmuebleService {
     })
   }
 
-  BuscarPais(id: number): Observable<InmuebleModel>{
+  BuscarInmueble(id: number): Observable<InmuebleModel>{
     return this.http.get<InmuebleModel>(`http://localhost:3000/inmuebles/${id}`,{
       headers: new HttpHeaders({
       })

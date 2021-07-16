@@ -17,7 +17,7 @@ export class BloqueService {
     }
 
   
-  CrearPais(model: BloqueModel): Observable<BloqueModel>{
+  CrearBloque(model: BloqueModel): Observable<BloqueModel>{
     return this.http.post<BloqueModel>('http://localhost:3000/proyectos',model,{
       headers: new HttpHeaders({
         "Authorization":`Bearer ${this.token}`
@@ -25,7 +25,7 @@ export class BloqueService {
     })
   }
 
-  ActualizarPais(model: BloqueModel): Observable<BloqueModel>{
+  ActualizarBloque(model: BloqueModel): Observable<BloqueModel>{
     return this.http.put<BloqueModel>(`http://localhost:3000/proyectos/${model.CodigoB}`,model,{
       headers: new HttpHeaders({
         "Authorization":`Bearer ${this.token}`
@@ -33,7 +33,7 @@ export class BloqueService {
     })
   }
 
-  EliminarPais(model: BloqueModel): Observable<any>{
+  EliminarBloque(model: BloqueModel): Observable<any>{
     return this.http.delete<BloqueModel>(`http://localhost:3000/proyectos/${model.CodigoB}`,{
       headers: new HttpHeaders({
         "Authorization":`Bearer ${this.token}`
@@ -41,7 +41,7 @@ export class BloqueService {
     })
   }
 
-  BuscarPais(id: number): Observable<BloqueModel>{
+  BuscarBloque(id: number): Observable<BloqueModel>{
     return this.http.get<BloqueModel>(`http://localhost:3000/proyectos/${id}`,{
       headers: new HttpHeaders({
       })
