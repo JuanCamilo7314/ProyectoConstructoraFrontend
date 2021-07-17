@@ -1,5 +1,8 @@
+import { ProyectoModel } from "./proyecto.model";
+
 export class BloqueModel{
     CodigoB?: number;
-    NombreB?: String;
+    NombreB?: string;
     proyectoId?: number;
+    proyecto: ProyectoModel=new ProyectoModel();
 }

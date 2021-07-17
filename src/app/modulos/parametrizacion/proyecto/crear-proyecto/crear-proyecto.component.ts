@@ -54,6 +54,7 @@ export class CrearProyectoComponent implements OnInit {
     this.service.uploadImage(formData).subscribe(
       (datos)=>{
         this.obtenerFGV.DImagen.setValue(datos.filename);
+        alert("Cargada Correctamente");
       },
       (error)=>{
         alert("Error al Cargar Imagen");

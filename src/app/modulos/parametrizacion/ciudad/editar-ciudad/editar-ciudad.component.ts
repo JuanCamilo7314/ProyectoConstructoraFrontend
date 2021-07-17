@@ -33,10 +33,10 @@ export class EditarCiudadComponent implements OnInit {
 
   ngOnInit(): void {
     this.ConstruirFormulario();
-    this.CargarDepartamentos();
+    this.CargarPaises();
   }
 
-  CargarDepartamentos(){
+  CargarPaises(){
     this.servicePais.ListarPaises().subscribe(
       (datos)=>{
         this.paisListado = datos;

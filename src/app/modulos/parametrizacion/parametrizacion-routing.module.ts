@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VerificadorSesionGuard } from 'src/app/guardianes/verificador-sesion.guard';
+import { CrearBloqueComponent } from './bloque/crear-bloque/crear-bloque.component';
+import { EditarBloqueComponent } from './bloque/editar-bloque/editar-bloque.component';
+import { ListarBloqueComponent } from './bloque/listar-bloque/listar-bloque.component';
 import { CrearCiudadComponent } from './ciudad/crear-ciudad/crear-ciudad.component';
 import { EditarCiudadComponent } from './ciudad/editar-ciudad/editar-ciudad.component';
 import { ListarCiudadComponent } from './ciudad/listar-ciudad/listar-ciudad.component';
@@ -70,6 +73,24 @@ const routes: Routes = [
   {
     path: 'proyecto/editar-proyecto/:id',
     component: EditarProyectoComponent,
+    canActivate:[VerificadorSesionGuard]
+  },
+
+  {
+    path: 'bloque/crear-bloque',
+    component: CrearBloqueComponent,
+    canActivate:[VerificadorSesionGuard]
+  },
+
+  {
+    path: 'bloque/listar-bloque',
+    component: ListarBloqueComponent,
+    canActivate:[VerificadorSesionGuard]
+  },
+
+  {
+    path: 'bloque/editar-bloque/:id',
+    component: EditarBloqueComponent,
     canActivate:[VerificadorSesionGuard]
   }
 ];

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CiudadModel } from '../modelos/ciudad.model';
 import { PaisModel } from '../modelos/pais.model';
 import { SecurityService } from './security.service';
 
@@ -50,6 +51,13 @@ export class PaisService {
 
   ListarPaises(): Observable<PaisModel[]>{
     return this.http.get<PaisModel[]>("http://localhost:3000/paises",{
+      headers: new HttpHeaders({
+      })
+    })
+  }
+
+  ListarCiudades(): Observable<PaisModel[]>{
+    return this.http.get<PaisModel[]>('http://localhost:3000/paises/?filter={"include":["ciudad"]}',{
       headers: new HttpHeaders({
       })
     })
