@@ -70,7 +70,7 @@ export class ProyectoService {
   }
 
   ListarProyectos(): Observable<ProyectoModel[]> {
-    return this.http.get<ProyectoModel[]>("http://localhost:3000/proyectos/", {
+    return this.http.get<ProyectoModel[]>('http://localhost:3000/proyectos/?filter={"include":["ciudad"]}', {
       headers: new HttpHeaders({
       })
     })

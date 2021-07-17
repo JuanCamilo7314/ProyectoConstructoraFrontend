@@ -6,3 +6,13 @@
     padding-bottom: 10px;
     padding-top: 22px;
 }
+
+@media(max-width:700px){
+    .editar{
+        width: 160px;
+    }
+
+    .eliminar{
+        width: 160px;
+    }
+}

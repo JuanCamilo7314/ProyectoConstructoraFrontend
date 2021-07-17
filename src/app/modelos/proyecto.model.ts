@@ -1,8 +1,10 @@
+import { CiudadModel } from "./ciudad.model";
+
 export class ProyectoModel{
     CodigoProy?: number;
     NombreProy?: string;
     DescripcionProy?: string;
     DImagen?: string;
     ciudadId?: number;
-    NombreC?: string;
+    ciudad: CiudadModel=new CiudadModel();
 }

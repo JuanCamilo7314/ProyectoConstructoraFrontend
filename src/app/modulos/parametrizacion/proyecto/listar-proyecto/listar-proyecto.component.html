@@ -1,14 +1,14 @@
 <br />
 
-<div class="agregar"> 
+<div class="agregar">
     <a class="btn waves-effect indigo darken-1" routerLink="/parametrizacion/proyecto/crear-proyecto"><i
-        class="material-icons left"> add</i> Agregar Registro</a>
-&nbsp; &nbsp;
+            class="material-icons left"> add</i> Agregar Registro</a>
+    &nbsp; &nbsp;
 </div>
 <div class="tabla">
     <table class="table table-responsive striped ">
         <thead>
-            <th>Id</th>
+            <th class="ar">Id</th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Imagen</th>
@@ -30,14 +30,17 @@
                     {{r.DImagen}}
                 </td>
                 <td>
-                    
+                    {{r.ciudad.NombreC}}
                 </td>
                 <td>
-                    <a class="btn waves-effect indigo darken-1"
-                        routerLink="/parametrizacion/proyecto/editar-proyecto/{{r.CodigoProy}}"><i class="material-icons left">
-                            edit</i>Editar Registro</a>
-                            &nbsp; &nbsp; &nbsp; 
-                    <button type="button" (click)="VerificarEliminacion(r.CodigoProy, r.NombreProy)" class="btn waves-effect indigo darken-1"
+                    <div class="diveditar"><a class="editar btn waves-effect indigo darken-1"
+                            routerLink="/parametrizacion/proyecto/editar-proyecto/{{r.CodigoProy}}"><i
+                                class="material-icons left">
+                                edit</i>Editar Registro</a>
+                    </div>
+                    &nbsp; &nbsp;
+                    <button type="button" (click)="VerificarEliminacion(r.CodigoProy, r.NombreProy)"
+                        class="eliminar btn waves-effect indigo darken-1"
                         routerLink="/parametrizacion/proyecto/listar-proyecto"><i class="material-icons left">
                             delete</i>Eliminar Registro</button>
                 </td>
@@ -45,10 +48,6 @@
         </tbody>
     </table>
 </div>
-<pagination-controls  (pageChange)="pagina = $event"
-                      previousLabel="Anterior"
-                      nextLabel="Siguiente"
-                      screenReaderPaginationLabel="Pagination"
-                      screenReaderPageLabel="Página">
+<pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior" nextLabel="Siguiente"
+    screenReaderPaginationLabel="Pagination" screenReaderPageLabel="Página">
 </pagination-controls>
-

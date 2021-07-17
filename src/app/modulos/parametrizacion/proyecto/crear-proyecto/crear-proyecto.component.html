@@ -6,8 +6,8 @@
         <form class="crar-pais-form" [formGroup]="uploadForm">
             <div class="row">
                 <input formControlName="DImagen" type="hidden">
-                <input formControlName="File" (change)="OnFileSelect($event)" class="validate" id="DImagen" type="file" id="myFile" name="filename">
-                <input type="button" value="upload" (click)="UploadImage()">
+                <input formControlName="File" (change)="OnFileSelect($event)" class="subir validate" id="DImagen" type="file" id="myFile" name="filename">
+                <input type="button" value="Subir" (click)="UploadImage()">
                 <div class="mensajeValidacion"
                     *ngIf="(obtenerFGV.DescripcionProy.errors &&(obtenerFGV.DescripcionProy.dirty||obtenerFGV.DescripcionProy.touched))">
                     <strong>Este campo es requerido.</strong>

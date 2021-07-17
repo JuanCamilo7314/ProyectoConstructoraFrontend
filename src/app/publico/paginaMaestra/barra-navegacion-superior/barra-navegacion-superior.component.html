@@ -5,31 +5,31 @@
     <ul class="right hide-on-med-and-down">
 
       <li *ngIf="isAdmin&&isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
-        data-target='dropdown3'>Informes</a></li>
-    <ul id='dropdown3' class='dropdown-content'>
-      <li><a style="color: black;" routerLink="informe/informe-pagoC">Pago por Clientes</a></li>
-      <li><a style="color: black;" routerLink="informe/informe-venta">Ventas</a></li>
-      <li><a style="color: black;" routerLink="informe/informe-proyecto">Proyectos</a></li>
-    </ul>
+          data-target='dropdown3'>Informes</a></li>
+      <ul id='dropdown3' class='dropdown-content'>
+        <li><a style="color: black;" routerLink="informe/informe-pagoC">Pago por Clientes</a></li>
+        <li><a style="color: black;" routerLink="informe/informe-venta">Ventas</a></li>
+        <li><a style="color: black;" routerLink="informe/informe-proyecto">Proyectos</a></li>
+      </ul>
 
-      <li *ngIf="isAdmin&&isLogged"><a routerLink="usuario/listar-usuario" class='btn-flat espaciomenus' href='#'
-        >Usuarios</a></li>
+      <li *ngIf="isAdmin&&isLogged"><a routerLink="usuario/listar-usuario" class='btn-flat espaciomenus'
+          href='#'>Usuarios</a></li>
 
-      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/inmueble/listar-inmueble" class='btn-flat espaciomenus' href='#'
-        >Inmuebles</a></li>
+      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/inmueble/listar-inmueble"
+          class='btn-flat espaciomenus' href='#'>Inmuebles</a></li>
 
-      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/bloque/listar-bloque" class='btn-flat espaciomenus' href='#'
-        >Bloques</a></li>
+      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/bloque/listar-bloque" class='btn-flat espaciomenus'
+          href='#'>Bloques</a></li>
 
-      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/proyecto/listar-proyecto" class='btn-flat espaciomenus' href='#'
-        >Proyectos</a></li>
+      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/proyecto/listar-proyecto"
+          class='btn-flat espaciomenus' href='#'>Proyectos</a></li>
 
-      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/ciudad/listar-ciudad" class='btn-flat espaciomenus' href='#'
-        >Ciudades</a></li>
+      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/ciudad/listar-ciudad" class='btn-flat espaciomenus'
+          href='#'>Ciudades</a></li>
 
-      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/pais/listar-pais" class='btn-flat espaciomenus' href='#'
-          >Paises</a></li>
-      
+      <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/pais/listar-pais" class='btn-flat espaciomenus'
+          href='#'>Paises</a></li>
+
 
       <li *ngIf="!isLogged"><a routerLink="seguridad/iniciar-sesion">Iniciar Sesion</a></li>
       <li *ngIf="isLogged"><a class='dropdown-trigger waves-effect btn-flat espaciomenus' href='#'
@@ -44,9 +44,54 @@
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-  <li><a href="sass.html">Sass</a></li>
-  <li><a routerLink="parametrizacion/ciudad/crear-ciudad">Crear Ciudad</a></li>
-  <li><a routerLink="parametrizacion/pais/crear-pais">Crear Pais</a></li>
+
   <li *ngIf="!isLogged"><a routerLink="seguridad/iniciar-sesion">Iniciar Sesion</a></li>
-  <li *ngIf="isLogged"><a routerLink="seguridad/cerrar-sesion">Cerrar Sesion</a></li>
+
+  <li>
+    <ul class="collapsible collapsible-accordion">
+      <li *ngIf="isLogged">
+        <a class='collapsible-header waves-effect btn-flat '>{{ FirstName }} {{ LastName }}</a>
+        <div class="collapsible-body">
+          <ul id='' class=''>
+            <li><a class="cambiarcontra" style="color: black;" routerLink="seguridad/cambiar-clave">Cambiar Contraseña</a>
+            </li>
+            <li><a class="cerrarsesion" style="color: black;" routerLink="seguridad/cerrar-sesion">Cerrar Sesion</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+
+  <li *ngIf="isAdmin&&isLogged"><a routerLink="usuario/listar-usuario" class='btn-flat ' href='#'>Usuarios</a></li>
+
+  <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/inmueble/listar-inmueble" class='btn-flat '
+      href='#'>Inmuebles</a></li>
+
+  <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/bloque/listar-bloque" class='btn-flat '
+      href='#'>Bloques</a></li>
+
+  <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/proyecto/listar-proyecto" class='btn-flat '
+      href='#'>Proyectos</a></li>
+
+  <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/ciudad/listar-ciudad" class='btn-flat '
+      href='#'>Ciudades</a></li>
+
+  <li *ngIf="isAdmin&&isLogged"><a routerLink="parametrizacion/pais/listar-pais" class='btn-flat ' href='#'>Paises</a>
+  </li>
+
+  <li>
+    <ul class="collapsible collapsible-accordion">
+      <li *ngIf="isAdmin&&isLogged">
+        <a class='collapsible-header waves-effect btn-flat '>Informes</a>
+        <div class="collapsible-body">
+          <ul id='' class=''>
+            <li><a style="color: black;" routerLink="informe/informe-pagoC">Pago por Clientes</a></li>
+            <li><a style="color: black;" routerLink="informe/informe-venta">Ventas</a></li>
+            <li><a style="color: black;" routerLink="informe/informe-proyecto">Proyectos</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+
 </ul>
