@@ -13,7 +13,6 @@ export class UsuarioService {
   token: string = "";
 
   constructor(private http: HttpClient,
-    private servicioUsuario: UsuarioService,
     private servicioSeguridad: SecurityService) {
     this.token = servicioSeguridad.obtenerToken();
   }
@@ -49,7 +48,7 @@ export class UsuarioService {
     })
   }
 
-  ListarUsuarioes(): Observable<UserModel[]> {
+  ListarUsuarios(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>("http://localhost:3000/usuarios", {
       headers: new HttpHeaders({
       })
