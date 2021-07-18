@@ -24,7 +24,8 @@ export class CrearUsuarioComponent implements OnInit {
       NombreU: ['', Validators.required],
       ApellidoU: ['', Validators.required],
       EmailU: ['', Validators.required],
-      TelefonoU: ['', Validators.required] 
+      TelefonoU: ['', Validators.required],
+      rolId: ['', Validators.required]
     });
   }
 
@@ -46,10 +47,10 @@ export class CrearUsuarioComponent implements OnInit {
       let email = this.obtenerFGV.EmailU.value;
       let telefono = this.obtenerFGV.TelefonoU.value;
       let roll = this.obtenerFGV.rolId.value;
-      if (roll = "Admin"){
+      if (roll == "Admin"){
         roll = Keys.AdminId;
       }
-      if (roll = "Vendedor"){
+      if (roll == "Vendedor"){
         roll = Keys.VendedorId;
       }
       let obj = new UserModel();
@@ -63,7 +64,7 @@ export class CrearUsuarioComponent implements OnInit {
       this.service.CrearUsuario(obj).subscribe(
         (datos) => {
           alert("Registro guardado");
-          this.router.navigate(["/usuaio/listar-usuario"]);
+          this.router.navigate(["/usuario/listar-usuario"]);
       },
         (error) => {
           alert("Error al guardar un registro");

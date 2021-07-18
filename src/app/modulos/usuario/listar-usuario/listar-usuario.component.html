@@ -1,14 +1,13 @@
 <br />
 
-<div class="agregar"> 
-    <a class="btn waves-effect indigo darken-1" routerLink="/usuario/crear-usuario"><i
-        class="material-icons left"> add</i> Agregar Registro</a>
-&nbsp; &nbsp;
+<div class="agregar">
+    <a class="btn waves-effect indigo darken-1" routerLink="/usuario/crear-usuario"><i class="material-icons left">
+            add</i> Agregar Registro</a>
+    &nbsp; &nbsp;
 </div>
 <div class="tabla">
     <table class="table table-responsive striped ">
         <thead>
-            <th>Id</th>
             <td>Documento</td>
             <th>Nombre</th>
             <td>Apellido</td>
@@ -34,22 +33,21 @@
                     {{r.TelefonoU}}
                 </td>
                 <td>
-                    <a class="btn waves-effect indigo darken-1"
-                        routerLink="/usuario/editar-usuario/{{r.IdUsuario}}"><i class="material-icons left">
-                            edit</i>Editar Registro</a>
-                            &nbsp; &nbsp; &nbsp; 
-                    <button type="button" (click)="VerificarEliminacion(r.IdUsuario, r.NombreU)" class="btn waves-effect indigo darken-1"
-                        routerLink="/usuario/listar-usuario"><i class="material-icons left">
+                    <div class="diveditar">
+                        <a class="editar btn waves-effect indigo darken-1"
+                            routerLink="/usuario/editar-usuario/{{r.IdUsuario}}"><i class="material-icons left">
+                                edit</i>Editar Registro</a>
+                    </div>
+                    &nbsp; &nbsp; &nbsp;
+                    <button type="button" (click)="VerificarEliminacion(r.IdUsuario, r.NombreU)"
+                        class="eliminar btn waves-effect indigo darken-1" routerLink="/usuario/listar-usuario"><i
+                            class="material-icons left">
                             delete</i>Eliminar Registro</button>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
-<pagination-controls  (pageChange)="pagina = $event"
-                      previousLabel="Anterior"
-                      nextLabel="Siguiente"
-                      screenReaderPaginationLabel="Pagination"
-                      screenReaderPageLabel="Página">
+<pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior" nextLabel="Siguiente"
+    screenReaderPaginationLabel="Pagination" screenReaderPageLabel="Página">
 </pagination-controls>
-

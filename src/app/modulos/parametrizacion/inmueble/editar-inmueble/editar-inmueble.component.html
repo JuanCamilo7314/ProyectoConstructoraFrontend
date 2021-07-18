@@ -8,7 +8,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">label_outline</i>
                     <input formControlName="Identificador" class="validate" id="Identificador" type="text">
-                    <label for="Identificador" data-error="wrong" data-success="right">Identificador</label>
+                    <label class="active" for="Identificador" data-error="wrong" data-success="right">Identificador</label>
                     <div class="mensajeValidacion"
                         *ngIf="(obtenerFGV.Identificador.errors &&(obtenerFGV.Identificador.dirty||obtenerFGV.Identificador.touched))">
                         <strong>Este campo es requerido.</strong>
@@ -19,7 +19,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">home</i>
                     <input formControlName="NombreIn" class="validate" id="NombreIn" type="text">
-                    <label for="NombreIn" data-error="wrong" data-success="right">Nombre</label>
+                    <label class="active" for="NombreIn" data-error="wrong" data-success="right">Nombre</label>
                     <div class="mensajeValidacion"
                         *ngIf="(obtenerFGV.NombreIn.errors &&(obtenerFGV.NombreIn.dirty||obtenerFGV.NombreIn.touched))">
                         <strong>Este campo es requerido.</strong>
@@ -30,7 +30,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">attach_money</i>
                     <input formControlName="ValorIn" class="validate" id="ValorIn" type="text">
-                    <label for="ValorIn" data-error="wrong" data-success="right">Valor</label>
+                    <label class="active" for="ValorIn" data-error="wrong" data-success="right">Valor</label>
                     <div class="mensajeValidacion"
                         *ngIf="(obtenerFGV.ValorIn.errors &&(obtenerFGV.ValorIn.dirty||obtenerFGV.ValorIn.touched))">
                         <strong>Este campo es requerido.</strong>

@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { mode } from 'crypto-js';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserModel } from '../modelos/user.model';
 import { SecurityService } from './security.service';
@@ -18,7 +19,14 @@ export class UsuarioService {
   }
 
   CrearUsuario(model: UserModel): Observable<UserModel> {
-    return this.http.post<UserModel>('http://localhost:3000/usuarios', model, {
+    return this.http.post<UserModel>('http://localhost:3000/usuarios', {
+      DocumentoU: model.DocumentoU,
+      NombreU: model.NombreU,
+      ApellidoU: model.ApellidoU,
+      EmailU: model.EmailU,
+      TelefonoU: model.TelefonoU,
+      rolId: model.Rol
+    }, {
       headers: new HttpHeaders({
         "Authorization": `Bearer ${this.token}`
       })
@@ -26,7 +34,14 @@ export class UsuarioService {
   }
 
   ActualizarUsuario(model: UserModel): Observable<UserModel> {
-    return this.http.put<UserModel>(`http://localhost:3000/usuarios/${model.IdUsuario}`, model, {
+    return this.http.put<UserModel>(`http://localhost:3000/usuarios/${model.IdUsuario}`, {
+      DocumentoU: model.DocumentoU,
+      NombreU: model.NombreU,
+      ApellidoU: model.ApellidoU,
+      EmailU: model.EmailU,
+      TelefonoU: model.TelefonoU,
+      rolId: model.Rol
+    }, {
       headers: new HttpHeaders({
         "Authorization": `Bearer ${this.token}`
       })
@@ -41,7 +56,7 @@ export class UsuarioService {
     })
   }
 
-  BuscarUsuario(id: number): Observable<UserModel> {
+  BuscarUsuario(id: string): Observable<UserModel> {
     return this.http.get<UserModel>(`http://localhost:3000/usuarios/${id}`, {
       headers: new HttpHeaders({
       })
