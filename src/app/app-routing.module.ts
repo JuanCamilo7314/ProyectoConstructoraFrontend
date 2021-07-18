@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./modulos/parametrizacion/parametrizacion.module').then(m => m.ParametrizacionModule)
   },
   {
+    path: 'usuario',
+    loadChildren: () => import('./modulos/usuario/usuario.module').then(m => m.UsuarioModule)
+  },
+  {
     path: 'error404',
     component: Error404Component
   },

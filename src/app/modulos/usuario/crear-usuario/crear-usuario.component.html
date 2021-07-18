@@ -1,1 +1,78 @@
-<p>crear-usuario works!</p>
+<div id="crearCiudad" class="row">
+    <div class="card-panel">
+        <form class="crar-pais-form" [formGroup]="fgValidacion">
+            <div class="titulo">
+                <H4>Creación Usuario</H4>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">contacts</i>
+                    <input formControlName="DocumentoU" class="validate" id="DocumentoU" type="text">
+                    <label for="DocumentoU" data-error="wrong" data-success="right">Documento</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.DocumentoU.errors &&(obtenerFGV.DocumentoU.dirty||obtenerFGV.DocumentoU.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">person</i>
+                    <input formControlName="NombreU" class="validate" id="NombreU" type="text">
+                    <label for="NombreU" data-error="wrong" data-success="right">Nombre</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.NombreU.errors &&(obtenerFGV.NombreU.dirty||obtenerFGV.NombreU.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">person</i>
+                    <input formControlName="ApellidoU" class="validate" id="ApellidoU" type="text">
+                    <label for="ApellidoU" data-error="wrong" data-success="right">Apellido</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.ApellidoU.errors &&(obtenerFGV.ApellidoU.dirty||obtenerFGV.ApellidoU.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input formControlName="EmailU" class="validate" id="EmailU" type="text">
+                    <label for="EmailU" data-error="wrong" data-success="right">Email</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.EmailU.errors &&(obtenerFGV.EmailU.dirty||obtenerFGV.EmailU.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">phone_android</i>
+                    <input formControlName="TelefonoU" class="validate" id="TelefonoU" type="text">
+                    <label for="TelefonoU" data-error="wrong" data-success="right">Telefono</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.TelefonoU.errors &&(obtenerFGV.TelefonoU.dirty||obtenerFGV.TelefonoU.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <label class="active">Rol</label>
+                <select formControlName="rolId" class="browser-default">
+                    <option value="0">Admin</option>
+                    <option value="1">Vendedor</option>
+                </select>
+            </div>
+            <p class="center-align">
+                <button (click)="GuardarRegistro()" type="button"
+                    class="crear btn waves-effect indigo darken-1 ">Crear</button>
+                &nbsp;
+                <a routerLink="/usuario/listar-usuario" type="button"
+                    class=" btn waves-effect indigo darken-1 ">Cancelar</a>
+            </p>
+        </form>
+    </div>
+</div>

@@ -7,6 +7,9 @@ import { ListarBloqueComponent } from './bloque/listar-bloque/listar-bloque.comp
 import { CrearCiudadComponent } from './ciudad/crear-ciudad/crear-ciudad.component';
 import { EditarCiudadComponent } from './ciudad/editar-ciudad/editar-ciudad.component';
 import { ListarCiudadComponent } from './ciudad/listar-ciudad/listar-ciudad.component';
+import { CrearInmuebleComponent } from './inmueble/crear-inmueble/crear-inmueble.component';
+import { EditarInmuebleComponent } from './inmueble/editar-inmueble/editar-inmueble.component';
+import { ListarInmuebleComponent } from './inmueble/listar-inmueble/listar-inmueble.component';
 import { CrearPaisComponent } from './pais/crear-pais/crear-pais.component';
 import { EditarPaisComponent } from './pais/editar-pais/editar-pais.component';
 import { EliminarPaisComponent } from './pais/eliminar-pais/eliminar-pais.component';
@@ -91,6 +94,24 @@ const routes: Routes = [
   {
     path: 'bloque/editar-bloque/:id',
     component: EditarBloqueComponent,
+    canActivate:[VerificadorSesionGuard]
+  },
+
+  {
+    path: 'inmueble/crear-inmueble',
+    component: CrearInmuebleComponent,
+    canActivate:[VerificadorSesionGuard]
+  },
+
+  {
+    path: 'inmueble/listar-inmueble',
+    component: ListarInmuebleComponent,
+    canActivate:[VerificadorSesionGuard]
+  },
+
+  {
+    path: 'inmueble/editar-inmueble/:id',
+    component: EditarInmuebleComponent,
     canActivate:[VerificadorSesionGuard]
   }
 ];

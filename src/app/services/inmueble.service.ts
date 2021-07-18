@@ -17,21 +17,37 @@ export class InmuebleService {
     }
 
   
-  CrearInmueble(model: InmuebleModel): Observable<InmuebleModel>{
-    return this.http.post<InmuebleModel>('http://localhost:3000/inmuebles',model,{
-      headers: new HttpHeaders({
-        "Authorization":`Bearer ${this.token}`
+    CrearInmueble(model: InmuebleModel): Observable<InmuebleModel> {
+      let idbloque = 0;
+      if (model.bloqueId) {
+        idbloque = parseInt(model.bloqueId.toString());
+        console.log(model);
+      }
+      return this.http.post<InmuebleModel>('http://localhost:3000/inmuebles', {
+        NombreIn: model.NombreIn,
+        bloqueId: idbloque
+      }, {
+        headers: new HttpHeaders({
+          "Authorization": `Bearer ${this.token}`
+        })
       })
-    })
-  }
-
-  ActualizarInmueble(model: InmuebleModel): Observable<InmuebleModel>{
-    return this.http.put<InmuebleModel>(`http://localhost:3000/inmuebles/${model.CodigoIn}`,model,{
-      headers: new HttpHeaders({
-        "Authorization":`Bearer ${this.token}`
+    }
+  
+    ActualizarInmueble(model: InmuebleModel): Observable<InmuebleModel> {
+      let idbloque = 0;
+      if (model.bloqueId) {
+        idbloque = parseInt(model.bloqueId.toString());
+        console.log(model);
+      }
+      return this.http.put<InmuebleModel>(`http://localhost:3000/Inmuebles/${model.CodigoIn}`, {
+        NombreIn: model.NombreIn,
+        bloqueId: idbloque
+      }, {
+        headers: new HttpHeaders({
+          "Authorization": `Bearer ${this.token}`
+        })
       })
-    })
-  }
+    }
 
   EliminarInmueble(model: InmuebleModel): Observable<any>{
     return this.http.delete<InmuebleModel>(`http://localhost:3000/inmuebles/${model.CodigoIn}`,{
