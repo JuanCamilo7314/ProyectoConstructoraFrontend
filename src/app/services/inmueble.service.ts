@@ -19,12 +19,19 @@ export class InmuebleService {
   
     CrearInmueble(model: InmuebleModel): Observable<InmuebleModel> {
       let idbloque = 0;
+      let valor=0;
       if (model.bloqueId) {
         idbloque = parseInt(model.bloqueId.toString());
         console.log(model);
       }
+      if(model.ValorIn){
+        valor = parseInt(model.ValorIn.toString());
+        console.log(model);
+      }
       return this.http.post<InmuebleModel>('http://localhost:3000/inmuebles', {
+        Identificador: model.Identificador,
         NombreIn: model.NombreIn,
+        ValorIn: valor,
         bloqueId: idbloque
       }, {
         headers: new HttpHeaders({
@@ -35,14 +42,20 @@ export class InmuebleService {
   
     ActualizarInmueble(model: InmuebleModel): Observable<InmuebleModel> {
       let idbloque = 0;
+      let valor=0;
       if (model.bloqueId) {
         idbloque = parseInt(model.bloqueId.toString());
+      }
+      if(model.ValorIn){
+        valor = parseInt(model.ValorIn.toString());
         console.log(model);
       }
-      return this.http.put<InmuebleModel>(`http://localhost:3000/Inmuebles/${model.CodigoIn}`, {
+      return this.http.put<InmuebleModel>(`http://localhost:3000/Inmuebles/${model.CodigoIn}`,{
+        Identificador: model.Identificador,
         NombreIn: model.NombreIn,
+        ValorIn: valor,
         bloqueId: idbloque
-      }, {
+      },{
         headers: new HttpHeaders({
           "Authorization": `Bearer ${this.token}`
         })
@@ -65,7 +78,7 @@ export class InmuebleService {
   }
 
   ListarInmuebles(): Observable<InmuebleModel[]>{
-    return this.http.get<InmuebleModel[]>("http://localhost:3000/inmuebles/",{
+    return this.http.get<InmuebleModel[]>('http://localhost:3000/inmuebles/?filter={"include":["bloque"]}',{
       headers: new HttpHeaders({
       })
     })

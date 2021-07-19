@@ -12,6 +12,9 @@
         <li><a style="color: black;" routerLink="informe/informe-proyecto">Proyectos</a></li>
       </ul>
 
+      <li *ngIf="isVendedor&&isLogged"><a routerLink="venta/cliente/crear-cliente" class='btn-flat espaciomenus'
+        href='#'>Clientes</a></li>
+
       <li *ngIf="isAdmin&&isLogged"><a routerLink="usuario/listar-usuario" class='btn-flat espaciomenus'
           href='#'>Usuarios</a></li>
 

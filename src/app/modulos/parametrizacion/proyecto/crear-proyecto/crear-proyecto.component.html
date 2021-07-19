@@ -5,16 +5,12 @@
         </div>
         <form class="crar-pais-form" [formGroup]="uploadForm">
             <div class="row">
-                <input formControlName="DImagen" type="hidden">
                 <input formControlName="File" (change)="OnFileSelect($event)" class="subir validate" id="DImagen" type="file" id="myFile" name="filename">
                 <input type="button" value="Subir" (click)="UploadImage()">
-                <div class="mensajeValidacion"
-                    *ngIf="(obtenerFGV.DescripcionProy.errors &&(obtenerFGV.DescripcionProy.dirty||obtenerFGV.DescripcionProy.touched))">
-                    <strong>Este campo es requerido.</strong>
-                </div>
             </div>
         </form>
         <form class="crar-pais-form" [formGroup]="fgValidacion">
+            <input formControlName="DImagen" type="hidden">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_city</i>
@@ -35,6 +31,16 @@
                         *ngIf="(obtenerFGV.DescripcionProy.errors &&(obtenerFGV.DescripcionProy.dirty||obtenerFGV.DescripcionProy.touched))">
                         <strong>Este campo es requerido.</strong>
                     </div>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <label class="active" data-error="wrong" data-success="right">Pais</label>
+                <select (change)="CargarCiudades()" formControlName="paisId" class="browser-default">
+                    <option *ngFor="let p of paisListado" value="{{p.CodigoP}}">{{p.NombreP}}</option>
+                </select>
+                <div class="mensajeValidacion"
+                    *ngIf="(obtenerFGV.paisId.errors &&(obtenerFGV.paisId.dirty||obtenerFGV.paisId.touched))">
+                    <strong>Este campo es requerido.</strong>
                 </div>
             </div>
             <div class="input-field col s12">

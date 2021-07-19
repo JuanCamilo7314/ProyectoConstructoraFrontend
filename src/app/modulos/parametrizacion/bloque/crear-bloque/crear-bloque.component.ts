@@ -61,12 +61,11 @@ export class CrearBloqueComponent implements OnInit {
   }
 
   CargarCiudades() {
-    this.serviceCiudad.ListarCiudades().subscribe(
+    this.servicePais.ListarCiudadesPorPais(this.obtenerFGV.paisId.value).subscribe(
       (datos) => {
         this.ciudadListado = datos;
       },
       (error) => {
-        alert("Error Listando los Registros de Ciudad")
       }
     );
   }
@@ -92,7 +91,6 @@ export class CrearBloqueComponent implements OnInit {
     } else {
       let nom = this.obtenerFGV.NombreB.value;
       let proyectoId = this.obtenerFGV.proyectoId.value;
-      let id = this.obtenerFGV.id.value;
       let obj = new BloqueModel();
       obj.NombreB = nom;
       obj.proyectoId = proyectoId;

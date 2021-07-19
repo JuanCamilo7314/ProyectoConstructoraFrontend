@@ -86,7 +86,7 @@ export class EditarBloqueComponent implements OnInit {
       (datos) => {
         this.obtenerFGV.id.setValue(datos.CodigoB);
         this.obtenerFGV.nombre.setValue(datos.NombreB);
-        this.obtenerFGV.paisId.setValue(datos.proyectoId);
+        this.obtenerFGV.proyectoId.setValue(datos.proyectoId);
       },
       (error) => {
         alert("No se encuentra el registro");

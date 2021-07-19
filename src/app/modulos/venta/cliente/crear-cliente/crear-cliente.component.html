@@ -1,1 +1,120 @@
-<p>crear-cliente works!</p>
+<div id="crearCliente" class="row">
+    <div class="card-panel">
+        <div class="titulo">
+            <H4>Creación Cliente</H4>
+        </div>
+        <form class="crar-pais-form" [formGroup]="uploadForm">
+            <div class="row">
+                <input formControlName="File" (change)="OnFileSelect($event)" class="subir validate" id="DImagen" type="file" id="myFile" name="filename">
+                <input type="button" value="Subir" (click)="UploadImage()">
+            </div>
+        </form>
+        <form class="crar-pais-form" [formGroup]="fgValidacion">
+            <input formControlName="DImagen" type="text">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">contacts</i>
+                    <input formControlName="DocumentoCli" class="validate" id="DocumentoCli" type="text">
+                    <label for="DocumentoCli" data-error="wrong" data-success="right">Documento</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.DocumentoCli.errors &&(obtenerFGV.DocumentoCli.dirty||obtenerFGV.DocumentoCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">person</i>
+                    <input formControlName="NombreCli" class="validate" id="NombreCli" type="text">
+                    <label for="NombreCli" data-error="wrong" data-success="right">Nombre</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.NombreCli.errors &&(obtenerFGV.NombreCli.dirty||obtenerFGV.NombreCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">person</i>
+                    <input formControlName="ApellidoCli" class="validate" id="ApellidoCli" type="text">
+                    <label for="ApellidoCli" data-error="wrong" data-success="right">Apellido</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.ApellidoCli.errors &&(obtenerFGV.ApellidoCli.dirty||obtenerFGV.ApellidoCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">perm_contact_calendar</i>
+                    <input formControlName="FechaNaciCli" class="validate" id="FechaNaciCli" type="text">
+                    <label for="FechaNaciCli" data-error="wrong" data-success="right">Fecha Nacimiento</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.FechaNaciCli.errors &&(obtenerFGV.FechaNaciCli.dirty||obtenerFGV.FechaNaciCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">phone_android</i>
+                    <input formControlName="TelefonoCli" class="validate" id="TelefonoCli" type="text">
+                    <label for="TelefonoCli" data-error="wrong" data-success="right">Telefono</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.TelefonoCli.errors &&(obtenerFGV.TelefonoCli.dirty||obtenerFGV.TelefonoCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input formControlName="EmailCli" class="validate" id="EmailCli" type="text">
+                    <label for="EmailCli" data-error="wrong" data-success="right">Email</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.EmailCli.errors &&(obtenerFGV.EmailCli.dirty||obtenerFGV.EmailCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">directions</i>
+                    <input formControlName="DireccionCLi" class="validate" id="DireccionCLi" type="text">
+                    <label for="DireccionCLi" data-error="wrong" data-success="right">Direccion</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.DireccionCLi.errors &&(obtenerFGV.DireccionCLi.dirty||obtenerFGV.DireccionCLi.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <label class="active" data-error="wrong" data-success="right">Pais</label>
+                <select (change)="CargarCiudades()" formControlName="paisId" class="browser-default">
+                    <option *ngFor="let p of paisListado" value="{{p.CodigoP}}">{{p.NombreP}}</option>
+                </select>
+                <div class="mensajeValidacion"
+                    *ngIf="(obtenerFGV.paisId.errors &&(obtenerFGV.paisId.dirty||obtenerFGV.paisId.touched))">
+                    <strong>Este campo es requerido.</strong>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <label class="active" data-error="wrong" data-success="right">Ciudad</label>
+                <select formControlName="ciudadId" class="browser-default">
+                    <option *ngFor="let c of ciudadListado" value="{{c.CodigoC}}">{{c.NombreC}}</option>
+                </select>
+                <div class="mensajeValidacion"
+                    *ngIf="(obtenerFGV.ciudadId.errors &&(obtenerFGV.ciudadId.dirty||obtenerFGV.ciudadId.touched))">
+                    <strong>Este campo es requerido.</strong>
+                </div>
+            </div>
+            <p class="center-align">
+                <button (click)="GuardarRegistro()" type="button"
+                    class="crear btn waves-effect indigo darken-1 ">Crear</button>
+                &nbsp;
+                <a routerLink="/venta/cliente/crear-cliente" type="button"
+                    class=" btn waves-effect indigo darken-1 ">Cancelar</a>
+            </p>
+        </form>
+    </div>
+</div>

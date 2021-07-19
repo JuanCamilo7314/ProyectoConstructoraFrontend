@@ -12,7 +12,6 @@ import { EditarInmuebleComponent } from './inmueble/editar-inmueble/editar-inmue
 import { ListarInmuebleComponent } from './inmueble/listar-inmueble/listar-inmueble.component';
 import { CrearPaisComponent } from './pais/crear-pais/crear-pais.component';
 import { EditarPaisComponent } from './pais/editar-pais/editar-pais.component';
-import { EliminarPaisComponent } from './pais/eliminar-pais/eliminar-pais.component';
 import { ListarPaisComponent } from './pais/listar-pais/listar-pais.component';
 import { CrearProyectoComponent } from './proyecto/crear-proyecto/crear-proyecto.component';
 import { EditarProyectoComponent } from './proyecto/editar-proyecto/editar-proyecto.component';
@@ -34,12 +33,6 @@ const routes: Routes = [
   {
     path: 'pais/editar-pais/:id',
     component: EditarPaisComponent,
-    canActivate:[VerificadorSesionGuard]
-  },
-
-  {
-    path: 'pais/eliminar-pais/:id',
-    component: EliminarPaisComponent,
     canActivate:[VerificadorSesionGuard]
   },
 

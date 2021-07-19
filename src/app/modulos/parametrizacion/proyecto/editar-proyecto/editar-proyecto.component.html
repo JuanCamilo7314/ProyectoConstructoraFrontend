@@ -1,12 +1,12 @@
 <div id="crearCiudad" class="row">
     <div class="card-panel">
         <div class="titulo">
-            <H4>Creación Proyecto</H4>
+            <H4>Edicion Proyecto</H4>
         </div>
         <form class="crar-pais-form" [formGroup]="uploadForm">
             <div class="row">
                 <input formControlName="DImagen" type="hidden">
-                <input formControlName="File" (change)="OnFileSelect($event)" class="validate" id="DImagen" type="file"
+                <input formControlName="File" (change)="OnFileSelect($event)" class="subir validate" id="DImagen" type="file"
                     id="myFile" name="filename">
                 <input type="button" value="upload" (click)="UploadImage()">
                 <div class="mensajeValidacion"
@@ -38,6 +38,16 @@
                     </div>
                 </div>
             </div>
+             <div class="input-field col s12">
+                <label class="active" data-error="wrong" data-success="right">Pais</label>
+                <select (change)="CargarCiudades()" formControlName="paisId" id="paisId" class="browser-default">
+                    <option *ngFor="let p of paisListado" value="{{p.CodigoP}}">{{p.NombreP}}</option>
+                </select>
+                <div class="mensajeValidacion"
+                    *ngIf="(obtenerFGV.paisId.errors &&(obtenerFGV.paisId.dirty||obtenerFGV.paisId.touched))">
+                    <strong>Este campo es requerido.</strong>
+                </div>
+            </div>
             <div class="input-field col s12">
                 <label class="active" data-error="wrong" data-success="right">Ciudad</label>
                 <select formControlName="ciudadId" class="browser-default">
@@ -51,7 +61,7 @@
             <input formControlName="id" class="validate" id="id" type="hidden">
             <p class="center-align">
                 <button (click)="ActualizarRegistro()" type="button"
-                    class="crear btn waves-effect indigo darken-1 ">Crear</button>
+                    class="crear btn waves-effect indigo darken-1 ">Actualizar</button>
                 &nbsp;
                 <a routerLink="/parametrizacion/proyecto/listar-proyecto" type="button"
                     class=" btn waves-effect indigo darken-1 ">Cancelar</a>

@@ -14,6 +14,8 @@ import { CrearPagoComponent } from './pago/crear-pago/crear-pago.component';
 import { EditarPagoComponent } from './pago/editar-pago/editar-pago.component';
 import { ListarPagoComponent } from './pago/listar-pago/listar-pago.component';
 import { EliminarPagoComponent } from './pago/eliminar-pago/eliminar-pago.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -33,7 +35,10 @@ import { EliminarPagoComponent } from './pago/eliminar-pago/eliminar-pago.compon
   ],
   imports: [
     CommonModule,
-    VentaRoutingModule
+    VentaRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class VentaModule { }

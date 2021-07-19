@@ -17,7 +17,7 @@
             </div>
             <div class="input-field col s12">
                 <label class="active">Pais</label>
-                <select formControlName="paisId" class="browser-default">
+                <select (change)="CargarCiudades()" formControlName="paisId" class="browser-default">
                     <option *ngFor="let p of paisListado" value="{{p.CodigoP}}">{{p.NombreP}}</option>
                 </select>
                 <div class="mensajeValidacion"
