@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { BloqueModel } from '../modelos/bloque.model';
 import { ProyectoModel } from '../modelos/proyecto.model';
 import { UploadModel } from '../modelos/upload.model';
 import { SecurityService } from './security.service';
@@ -84,4 +85,12 @@ export class ProyectoService {
       })
     })
   }
+
+  ListarBloquePorProyecto(id: number): Observable<BloqueModel[]> {
+    return this.http.get<BloqueModel[]>(`http://localhost:3000/proyectos/${id}/bloques`, {
+      headers: new HttpHeaders({
+      })
+    })
+  }
+
 }

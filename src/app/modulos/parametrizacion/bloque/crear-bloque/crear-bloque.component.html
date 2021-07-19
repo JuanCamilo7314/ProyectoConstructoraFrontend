@@ -27,7 +27,7 @@
             </div>
             <div class="input-field col s12">
                 <label class="active" data-error="wrong" data-success="right">Ciudad</label>
-                <select formControlName="ciudadId" class="browser-default">
+                <select (change)="CargarProyectos()" formControlName="ciudadId" class="browser-default">
                     <option *ngFor="let c of ciudadListado" value="{{c.CodigoC}}">{{c.NombreC}}</option>
                 </select>
                 <div class="mensajeValidacion"

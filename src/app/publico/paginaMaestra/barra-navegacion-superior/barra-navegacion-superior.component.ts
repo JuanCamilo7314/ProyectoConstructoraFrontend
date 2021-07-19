@@ -29,7 +29,7 @@ export class BarraNavegacionSuperiorComponent implements OnInit {
         let x: any = data;
         this.FirstName = x.user.NombreU;
         this.LastName = x.user.ApellidoU;
-        if (x.user.rolId == Keys.AdminId) {
+        if (x.user.rolId == Keys.VendedorId) {
           console.log("no soy admin :(");
           this.isAdmin = false;
           this.isVendedor = true;

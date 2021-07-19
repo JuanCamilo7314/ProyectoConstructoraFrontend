@@ -21,7 +21,7 @@ export class EditarBloqueComponent implements OnInit {
   ciudadListado: CiudadModel[] = [];
   proyectoListado: ProyectoModel[] = [];
   fgValidacion: FormGroup = this.fb.group({});
-  id: number =0;
+  id: number = 0;
 
   constructor(private fb: FormBuilder,
     private service: BloqueService,
@@ -33,6 +33,7 @@ export class EditarBloqueComponent implements OnInit {
 
   ConstruirFormulario() {
     this.fgValidacion = this.fb.group({
+      id: ['', Validators.required],
       NombreB: ['', Validators.required],
       paisId: ['', Validators.required],
       ciudadId: ['', Validators.required],
@@ -42,61 +43,87 @@ export class EditarBloqueComponent implements OnInit {
 
   ngOnInit(): void {
     this.ConstruirFormulario();
-    this.CargarPaises();
-    this.CargarCiudades();
-    this.CargarProyectos();
+    this.BuscarRegistro();
   }
 
-  CargarPaises(){
+  handlePaisChange(pais: any) {
+    console.log(pais.target.data);
+  }
+
+  CargarPaises() {
     this.servicePais.ListarPaises().subscribe(
-      (datos)=>{
+      (datos) => {
         this.paisListado = datos;
       },
-      (error)=>{
+      (error) => {
         alert("Error Listando los Registros de Ciudad")
       }
     );
   }
 
-  CargarCiudades(){
-    this.serviceCiudad.ListarCiudades().subscribe(
-      (datos)=>{
+  CargarCiudades() {
+    this.servicePais.ListarCiudadesPorPais(this.obtenerFGV.paisId.value).subscribe(
+      (datos) => {
         this.ciudadListado = datos;
       },
-      (error)=>{
-        alert("Error Listando los Registros de Ciudad")
+      (error) => {
       }
     );
   }
 
-  CargarProyectos(){
-    this.serviceProyecto.ListarProyectos().subscribe(
-      (datos)=>{
+  CargarProyectos() {
+    this.serviceCiudad.ListarProyectosPorCiudad(this.obtenerFGV.ciudadId.value).subscribe(
+      (datos) => {
         this.proyectoListado = datos;
       },
-      (error)=>{
-        alert("Error Listando los Registros de Ciudad")
+      (error) => {
       }
     );
   }
 
-  BuscarRegistro(){
+  get obtenerFGV() {
+    return this.fgValidacion.controls;
+  }
+
+  BuscarRegistro() {
     this.id = this.route.snapshot.params["id"];
     this.service.BuscarBloque(this.id).subscribe(
       (datos) => {
+        console.log(datos);
         this.obtenerFGV.id.setValue(datos.CodigoB);
-        this.obtenerFGV.nombre.setValue(datos.NombreB);
+        this.obtenerFGV.NombreB.setValue(datos.NombreB);
         this.obtenerFGV.proyectoId.setValue(datos.proyectoId);
+        if (datos.proyectoId) {
+          this.serviceProyecto.BuscarProyecto(datos.proyectoId).subscribe(
+            (datos2) => {
+              this.obtenerFGV.ciudadId.setValue(datos2.ciudadId)
+              if (this.obtenerFGV.ciudadId.value) {
+                this.serviceCiudad.BuscarCiudad(parseInt(this.obtenerFGV.ciudadId.value)).subscribe(
+                  (datos2) => {
+                    this.obtenerFGV.paisId.setValue(datos2.paisId)
+                    this.CargarPaises();
+                    this.CargarCiudades();
+                    this.CargarProyectos();
+                  }, (error) => {
+      
+                  }
+                )
+              }
+              this.CargarPaises();
+              this.CargarCiudades();
+            }, (error) => {
+
+            }
+          )
+        }
       },
       (error) => {
         alert("No se encuentra el registro");
       }
     );
+
   }
 
-  get obtenerFGV(){
-    return this.fgValidacion.controls;
-  }
 
   ActualizarRegistro() {
     if (this.fgValidacion.invalid) {
@@ -114,7 +141,7 @@ export class EditarBloqueComponent implements OnInit {
         (datos) => {
           alert("Registro guardado");
           this.router.navigate(["/parametrizacion/bloque/listar-bloque"]);
-      },
+        },
         (error) => {
           alert("Error al guardar un registro");
         });

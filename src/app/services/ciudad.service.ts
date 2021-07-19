@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CiudadModel } from '../modelos/ciudad.model';
 import { PaisModel } from '../modelos/pais.model';
+import { ProyectoModel } from '../modelos/proyecto.model';
 import { SecurityService } from './security.service';
 
 @Injectable({
@@ -78,4 +79,12 @@ export class CiudadService {
       })
     })
   }
+
+  ListarProyectosPorCiudad(id: number): Observable<ProyectoModel[]> {
+    return this.http.get<ProyectoModel[]>(`http://localhost:3000/ciudads/${id}/proyectos`, {
+      headers: new HttpHeaders({
+      })
+    })
+  }
+
 }

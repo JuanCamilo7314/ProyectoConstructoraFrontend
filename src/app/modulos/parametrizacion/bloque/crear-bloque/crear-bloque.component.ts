@@ -71,12 +71,11 @@ export class CrearBloqueComponent implements OnInit {
   }
 
   CargarProyectos() {
-    this.serviceProyecto.ListarProyectos().subscribe(
+    this.serviceCiudad.ListarProyectosPorCiudad(this.obtenerFGV.ciudadId.value).subscribe(
       (datos) => {
         this.proyectoListado = datos;
       },
       (error) => {
-        alert("Error Listando los Registros de Ciudad")
       }
     );
   }
