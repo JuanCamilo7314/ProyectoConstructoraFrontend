@@ -20,6 +20,7 @@ export class CrearSolicitudComponent implements OnInit {
 
   clienteListado: ClienteModel[] = [];
   inmuebleListado: InmuebleModel[] = [];
+  solicitudesListado: SolicitudModel[] = [];
   fgValidacion: FormGroup = this.fb.group({});
 
   constructor(private fb: FormBuilder,
@@ -28,46 +29,60 @@ export class CrearSolicitudComponent implements OnInit {
     private serviceInmueble: InmuebleService,
     private serviceUsuario: UsuarioService,
     private serviceSecurity: SecurityService,
-    private service: SolicitudService) { }
+    private service: SolicitudService,
+    private serviceSolicitud: SolicitudService) { }
 
-    ConstruirFormulario() {
-      this.fgValidacion = this.fb.group({
-        clienteId: ['', Validators.required],
-        inmuebleId: ['', Validators.required],
-        FechaSolicitud: ['', Validators.required],
-        OfertaEconomica: ['', Validators.required]
-      });
-    }
+  ConstruirFormulario() {
+    this.fgValidacion = this.fb.group({
+      clienteId: ['', Validators.required],
+      inmuebleId: ['', Validators.required],
+      FechaSolicitud: ['', Validators.required],
+      OfertaEconomica: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
     this.ConstruirFormulario();
     this.CargarClientes();
     this.CargarImuebles();
+    this.CargarSolicitudes();
   }
 
-  CargarClientes(){
-    this.serviceCliente.Listarclientes().subscribe(
-      (datos)=>{
-        this.clienteListado = datos;
+  CargarSolicitudes() {
+    this.serviceSolicitud.Listarsolicitud().subscribe(
+      (datos) => {
+        this.solicitudesListado = datos;
       },
-      (error)=>{
+      (error) => {
+        alert("Error al obtener listado de solicitudes")
+      }
+    );
+  }
+
+  CargarClientes() {
+    this.serviceCliente.Listarclientes().subscribe(
+      (datos) => {
+        this.clienteListado = datos;
+        console.log(this.solicitudesListado)
+      },
+      (error) => {
         alert("Error Listando los Registros de Ciudad")
       }
     );
   }
 
-  CargarImuebles(){
+  CargarImuebles() {
     this.serviceInmueble.ListarInmuebles().subscribe(
-      (datos)=>{
+      (datos) => {
         this.inmuebleListado = datos;
       },
-      (error)=>{
+      (error) => {
         alert("Error Listando los Registros de Ciudad")
       }
     );
   }
 
-  get obtenerFGV(){
+  get obtenerFGV() {
     return this.fgValidacion.controls;
   }
 
@@ -86,21 +101,11 @@ export class CrearSolicitudComponent implements OnInit {
       obj.OfertaEconomica = oferta;
       obj.FechaSolicitud = fecha;
       obj.EstadoSolicitud = estado;
-      let usuariostorage:any= (this.serviceSecurity.getUserInfo().value);
+      let usuariostorage: any = (this.serviceSecurity.getUserInfo().value);
       console.log(usuariostorage);
       obj.usuarioId = usuariostorage.user.IdUsuario
-      alert(obj.usuarioId)
       console.log(obj);
-      this.service.CrearSolicitud(obj).subscribe(
-        (datos) => {
-          alert("Registro guardado");
-          this.router.navigate(["/venta/solicitud/listar-solicitud"]);
-      },
-        (error) => {
-          alert("Error al guardar un registro");
-        });
+      
     }
   }
-
-
 }

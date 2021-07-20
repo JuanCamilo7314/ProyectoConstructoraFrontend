@@ -24,11 +24,11 @@ export class EditarSolicitudComponent implements OnInit {
 
     ConstruirFormulario() {
       this.fgValidacion = this.fb.group({
+        id: ['', Validators.required],
         clienteId: ['', Validators.required],
         inmuebleId: ['', Validators.required],
         FechaSolicitud: ['', Validators.required],
         OfertaEconomica: ['', Validators.required],
-        id: ['', Validators.required],
         EstadoSolicitud: ['', Validators.required],
         usuarioId: ['', Validators.required]
       });
@@ -36,6 +36,7 @@ export class EditarSolicitudComponent implements OnInit {
 
   ngOnInit(): void {
     this.ConstruirFormulario();
+    this.BuscarRegistro();
   }
 
   BuscarRegistro(){
@@ -66,16 +67,20 @@ export class EditarSolicitudComponent implements OnInit {
     } else {
       let cliente = parseInt(this.obtenerFGV.clienteId.value.toString());
       let inmueble = parseInt(this.obtenerFGV.inmuebleId.value.toString());
-      let usuario = parseInt(this.obtenerFGV.usuarioId.value.toString());
+      let usuario = this.obtenerFGV.usuarioId.value;
       let fecha = this.obtenerFGV.FechaSolicitud.value;
       let oferta = parseInt(this.obtenerFGV.OfertaEconomica.value.toString());
       let estado = this.obtenerFGV.EstadoSolicitud.value;
+      let id = this.obtenerFGV.id.value;
       let obj = new SolicitudModel();
+      obj.IdSolicitud = id;
       obj.clienteId = cliente;
       obj.inmuebleId = inmueble;
       obj.OfertaEconomica = oferta;
       obj.FechaSolicitud = fecha;
       obj.EstadoSolicitud = estado;
+      obj.usuarioId=usuario;
+      console.log(obj)
       this.service.ActualizarSolicitud(obj).subscribe(
         (datos) => {
           alert("Registro guardado");

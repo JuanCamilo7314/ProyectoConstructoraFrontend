@@ -128,11 +128,11 @@ export class EditarClienteComponent implements OnInit {
         this.obtenerFGV.EmailCli.setValue(datos.EmailCli);
         this.obtenerFGV.DireccionCLi.setValue(datos.DImagenCli);
         this.obtenerFGV.ciudadId.setValue(datos.ciudadId);
-        
+
         if (this.obtenerFGV.ciudadId.value) {
           this.serviceCiudad.BuscarCiudad(this.obtenerFGV.ciudadId.value).subscribe(
             (datos2) => {
-              
+
               this.obtenerFGV.paisId.setValue(datos2.paisId)
               this.CargarPaises();
               this.CargarCiudades();
@@ -150,7 +150,7 @@ export class EditarClienteComponent implements OnInit {
         this.obtenerFGV.NombreRefPerCli.setValue(datos.NombreRefPerCli);
         this.obtenerFGV.ApellidoRefPerCli.setValue(datos.ApellidoRefPerCli);
         this.obtenerFGV.TelefonoRefPerCli.setValue(datos.TelefonoRefPerCli);
-        
+
       },
       (error) => {
         alert("No se encuentra el registro");
@@ -163,7 +163,7 @@ export class EditarClienteComponent implements OnInit {
     if (this.fgValidacion.invalid) {
       alert("informacion invalida")
     } else {
-      
+
       let doc = parseInt(this.obtenerFGV.DocumentoCli.value.toString());
       let nom = this.obtenerFGV.NombreCli.value;
       let ape = this.obtenerFGV.ApellidoCli.value;
@@ -174,7 +174,7 @@ export class EditarClienteComponent implements OnInit {
       let direc = this.obtenerFGV.DireccionCLi.value;
       let ciudadId = parseInt(this.obtenerFGV.ciudadId.value.toString());
       let totingresos = parseInt(this.obtenerFGV.TotIngresosCli.value.toString());
-      let datosT =  this.obtenerFGV.DatosTrabajo.value;
+      let datosT = this.obtenerFGV.DatosTrabajo.value;
       let tiempoT = this.obtenerFGV.TiemTrabajoAcCli.value;
       let nomRefF = this.obtenerFGV.NombreRefFamCli.value;
       let apeRefF = this.obtenerFGV.ApellidoRefFamCli.value;
@@ -182,8 +182,10 @@ export class EditarClienteComponent implements OnInit {
       let nomRefP = this.obtenerFGV.NombreRefPerCli.value;
       let apeRefP = this.obtenerFGV.ApellidoRefPerCli.value;
       let telRefP = this.obtenerFGV.TelefonoRefPerCli.value;
-      
+      let id = this.obtenerFGV.id.value;
+
       let obj = new ClienteModel();
+      obj.IdCliente = id;
       obj.DocumentoCli = doc;
       obj.NombreCli = nom;
       obj.ApellidoCli = ape;
@@ -203,7 +205,7 @@ export class EditarClienteComponent implements OnInit {
       obj.ApellidoRefPerCli = apeRefP;
       obj.TelefonoRefPerCli = telRefP;
       console.log(obj);
-      this.service.CrearCliente(obj).subscribe(
+      this.service.ActualizarCliente(obj).subscribe(
         (datos) => {
           alert("Registro guardado");
           this.router.navigate(["/venta/cliente/listar-cliente"]);
