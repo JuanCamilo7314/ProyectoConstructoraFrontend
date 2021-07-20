@@ -5,8 +5,15 @@
 .espaciomenus{
     background-color: #3949ab;
     color: white;
-    margin-right: -10px;
+    margin-right: -12px;
     
+}
+.espaciomenususuario{
+    background-color: #3949ab;
+    color: white;
+}
+.espaciomenususuario:hover{
+    background-color:#283593;
 }
 .espaciomenus:hover{
     background-color:#283593;
@@ -15,6 +22,16 @@
 .dropdown-content{
     background-color: white;
     
+}
+
+a{
+    font-size: 13px;
+}
+
+@media (max-width:1150px) and (min-width:990px) {
+    a {
+        font-size: 8px;
+    }
 }
 
 

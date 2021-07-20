@@ -1,1 +1,33 @@
-<p>editar-solicitud works!</p>
+<div id="crearCiudad" class="row">
+    <div class="card-panel">
+        <form class="crar-pais-form" [formGroup]="fgValidacion">
+            <div class="titulo">
+                <H4>Creación Solicitud</H4>
+            </div>
+            <div class="input-field col s12">
+                <label class="active">Estado Solicitud</label>
+                <select formControlName="EstadoSolicitud" class="browser-default">
+                    <option value="Aceptada">Aceptada</option>
+                    <option value="Cancelada">Cancelada</option>
+                </select>
+                <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.EstadoSolicitud.errors &&(obtenerFGV.EstadoSolicitud.dirty||obtenerFGV.EstadoSolicitud.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+            </div>
+            <input type="hidden" formControlName="clienteId" class="validate" id="clienteId">
+            <input type="hidden" formControlName="usuarioId" class="validate" id="usuarioId">
+            <input type="hidden" formControlName="inmuebleId" class="validate" id="inmuebleId">
+            <input type="hidden" formControlName="FechaSolicitud" class="validate" id="FechaSolicitud">
+            <input formControlName="OfertaEconomica" class="validate" id="OfertaEconomica" type="hidden">
+            <input formControlName="id" class="validate" id="id" type="hidden">
+            <p class="center-align">
+                <button (click)="ActualizarRegistro()" type="button"
+                    class="crear btn waves-effect indigo darken-1 ">Crear</button>
+                &nbsp;
+                <a routerLink="/venta/solicitud/listar-solicitud" type="button"
+                    class=" btn waves-effect indigo darken-1 ">Cancelar</a>
+            </p>
+        </form>
+    </div>
+</div>

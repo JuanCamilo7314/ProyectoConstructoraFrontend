@@ -36,8 +36,17 @@ export class CrearClienteComponent implements OnInit {
       TelefonoCli: ['', Validators.required],
       EmailCli: ['', Validators.required],
       DireccionCLi: ['', Validators.required],
+      paisId: ['', Validators.required],
       ciudadId: ['', Validators.required],
-      paisId: ['', Validators.required]
+      TotIngresosCli: ['', Validators.required],
+      DatosTrabajo: ['', Validators.required],
+      TiemTrabajoAcCli: ['', Validators.required],
+      NombreRefFamCli: ['', Validators.required],
+      ApellidoRefFamCli: ['', Validators.required],
+      TelefonoRefFamCli: ['', Validators.required],
+      NombreRefPerCli: ['', Validators.required],
+      ApellidoRefPerCli: ['', Validators.required],
+      TelefonoRefPerCli: ['', Validators.required]
     });
   }
 
@@ -108,18 +117,26 @@ export class CrearClienteComponent implements OnInit {
     if (this.fgValidacion.invalid) {
       alert("informacion invalida")
     } else {
-      let doc = this.obtenerFGV.DocumentoCli.value;
+      
+      let doc = parseInt(this.obtenerFGV.DocumentoCli.value.toString());
       let nom = this.obtenerFGV.NombreCli.value;
       let ape = this.obtenerFGV.ApellidoCli.value;
       let fecha = this.obtenerFGV.FechaNaciCli.value;
       let DImagen = this.obtenerFGV.DImagen.value;
       let phone = this.obtenerFGV.TelefonoCli.value;
       let email = this.obtenerFGV.EmailCli.value;
-      let direc = this.obtenerFGV.DireccionCli.value;
-      console.log("hola")
-      console.log(this.obtenerFGV.DireccionCli.value);
-      console.log("end")
+      let direc = this.obtenerFGV.DireccionCLi.value;
       let ciudadId = parseInt(this.obtenerFGV.ciudadId.value.toString());
+      let totingresos = parseInt(this.obtenerFGV.TotIngresosCli.value.toString());
+      let datosT =  this.obtenerFGV.DatosTrabajo.value;
+      let tiempoT = this.obtenerFGV.TiemTrabajoAcCli.value;
+      let nomRefF = this.obtenerFGV.NombreRefFamCli.value;
+      let apeRefF = this.obtenerFGV.ApellidoRefFamCli.value;
+      let telRefF = this.obtenerFGV.TelefonoRefFamCli.value;
+      let nomRefP = this.obtenerFGV.NombreRefPerCli.value;
+      let apeRefP = this.obtenerFGV.ApellidoRefPerCli.value;
+      let telRefP = this.obtenerFGV.TelefonoRefPerCli.value;
+      
       let obj = new ClienteModel();
       obj.DocumentoCli = doc;
       obj.NombreCli = nom;
@@ -128,8 +145,17 @@ export class CrearClienteComponent implements OnInit {
       obj.DImagenCli = DImagen;
       obj.TelefonoCli = phone;
       obj.EmailCli = email;
-      obj.DireccionCli = direc;
+      obj.DireccionCLi = direc;
       obj.ciudadId = ciudadId;
+      obj.TotIngresosCli = totingresos;
+      obj.DatosTrabajo = datosT;
+      obj.TiemTrabajoAcCli = tiempoT;
+      obj.NombreRefFamCli = nomRefF;
+      obj.ApellidoRefFamCli = apeRefF;
+      obj.TelefonoRefFamCli = telRefF;
+      obj.NombreRefPerCli = nomRefP;
+      obj.ApellidoRefPerCli = apeRefP;
+      obj.TelefonoRefPerCli = telRefP;
       console.log(obj);
       this.service.CrearCliente(obj).subscribe(
         (datos) => {

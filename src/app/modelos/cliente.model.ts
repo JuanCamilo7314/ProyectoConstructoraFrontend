@@ -1,5 +1,5 @@
 import { CiudadModel } from "./ciudad.model";
-export class ClienteModel{
+export class ClienteModel {
     IdCliente?: number;
     DocumentoCli?: number;
     NombreCli?: string;
@@ -8,8 +8,8 @@ export class ClienteModel{
     DImagenCli?: string;
     TelefonoCli?: string;
     EmailCli?: string;
-    DireccionCli?:string;
-    CiudadId?: number;
+    DireccionCLi?: string;
+    ciudadId?: number;
     TotIngresosCli?: number;
     DatosTrabajo?: string;
     TiemTrabajoAcCli?: string;
@@ -19,6 +19,5 @@ export class ClienteModel{
     NombreRefPerCli?: string;
     ApellidoRefPerCli?: string;
     TelefonoRefPerCli?: string;
-    ciudadId?: number;
-    ciudad: CiudadModel=new CiudadModel();
+    ciudad: CiudadModel = new CiudadModel();
 }

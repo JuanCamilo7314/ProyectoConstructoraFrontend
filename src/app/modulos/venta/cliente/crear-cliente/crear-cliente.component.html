@@ -10,7 +10,7 @@
             </div>
         </form>
         <form class="crar-pais-form" [formGroup]="fgValidacion">
-            <input formControlName="DImagen" type="text">
+            <input formControlName="DImagen" type="hidden">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">contacts</i>
@@ -108,11 +108,110 @@
                     <strong>Este campo es requerido.</strong>
                 </div>
             </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">monetization_on</i>
+                    <input formControlName="TotIngresosCli" class="validate" id="TotIngresosCli" type="text">
+                    <label for="TotIngresosCli" data-error="wrong" data-success="right">Total De Ingresos</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.TotIngresosCli.errors &&(obtenerFGV.TotIngresosCli.dirty||obtenerFGV.TotIngresosCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">work</i>
+                    <input formControlName="DatosTrabajo" class="validate" id="DatosTrabajo" type="text">
+                    <label for="DatosTrabajo" data-error="wrong" data-success="right">Datos del Trabajo</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.DatosTrabajo.errors &&(obtenerFGV.DatosTrabajo.dirty||obtenerFGV.DatosTrabajo.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">access_time</i>
+                    <input formControlName="TiemTrabajoAcCli" class="validate" id="TiemTrabajoAcCli" type="text">
+                    <label for="TiemTrabajoAcCli" data-error="wrong" data-success="right">Tiempo De Trabajo</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.TiemTrabajoAcCli.errors &&(obtenerFGV.TiemTrabajoAcCli.dirty||obtenerFGV.TiemTrabajoAcCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">person_pin</i>
+                    <input formControlName="NombreRefFamCli" class="validate" id="NombreRefFamCli" type="text">
+                    <label for="NombreRefFamCli" data-error="wrong" data-success="right">Nombre Referencia Familiar</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.NombreRefFamCli.errors &&(obtenerFGV.NombreRefFamCli.dirty||obtenerFGV.NombreRefFamCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">person_pin</i>
+                    <input formControlName="ApellidoRefFamCli" class="validate" id="ApellidoRefFamCli" type="text">
+                    <label for="ApellidoRefFamCli" data-error="wrong" data-success="right">Apellido Referencia Familiar</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.ApellidoRefFamCli.errors &&(obtenerFGV.ApellidoRefFamCli.dirty||obtenerFGV.ApellidoRefFamCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">contact_phone</i>
+                    <input formControlName="TelefonoRefFamCli" class="validate" id="TelefonoRefFamCli" type="text">
+                    <label for="TelefonoRefFamCli" data-error="wrong" data-success="right">Telefono Referencia Familiar</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.TelefonoRefFamCli.errors &&(obtenerFGV.TelefonoRefFamCli.dirty||obtenerFGV.TelefonoRefFamCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">person_outline</i>
+                    <input formControlName="NombreRefPerCli" class="validate" id="NombreRefPerCli" type="text">
+                    <label for="NombreRefPerCli" data-error="wrong" data-success="right">Nombre Referencia Personal</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.NombreRefPerCli.errors &&(obtenerFGV.NombreRefPerCli.dirty||obtenerFGV.NombreRefPerCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">person_outline</i>
+                    <input formControlName="ApellidoRefPerCli" class="validate" id="ApellidoRefPerCli" type="text">
+                    <label for="ApellidoRefPerCli" data-error="wrong" data-success="right">Apellido Referencia Personal</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.ApellidoRefPerCli.errors &&(obtenerFGV.ApellidoRefPerCli.dirty||obtenerFGV.ApellidoRefPerCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">local_phone</i>
+                    <input formControlName="TelefonoRefPerCli" class="validate" id="TelefonoRefPerCli" type="text">
+                    <label for="TelefonoRefPerCli" data-error="wrong" data-success="right">Telefono Referencia Personal</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.TelefonoRefPerCli.errors &&(obtenerFGV.TelefonoRefPerCli.dirty||obtenerFGV.TelefonoRefPerCli.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
             <p class="center-align">
                 <button (click)="GuardarRegistro()" type="button"
                     class="crear btn waves-effect indigo darken-1 ">Crear</button>
                 &nbsp;
-                <a routerLink="/venta/cliente/crear-cliente" type="button"
+                <a routerLink="/venta/cliente/listar-cliente" type="button"
                     class=" btn waves-effect indigo darken-1 ">Cancelar</a>
             </p>
         </form>

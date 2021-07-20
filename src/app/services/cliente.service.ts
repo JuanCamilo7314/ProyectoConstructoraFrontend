@@ -18,45 +18,8 @@ export class ClienteService {
   }
 
   CrearCliente(model: ClienteModel): Observable<ClienteModel> {
-    let idCiudad = 0;
-    let doc = 0;
-    if (model.CiudadId) {
-      idCiudad = parseInt(model.CiudadId.toString());
-      console.log(model);
-    }
-    if (model.DocumentoCli) {
-      doc = parseInt(model.DocumentoCli.toString());
-      console.log(model);
-    }
+   
     return this.http.post<ClienteModel>('http://localhost:3000/clientes', {
-      DocumentoCli: doc,
-      NombreCli: model.NombreCli,
-      ApellidoCli: model.ApellidoCli,
-      FechaNaciCli: model.FechaNaciCli,
-      DImagenCli: model.DImagenCli,
-      TelefonoCli: model.TelefonoCli,
-      EmailCli: model.EmailCli,
-      DireccionCli: model.DireccionCli,
-      CiudadId: idCiudad
-    }, {
-      headers: new HttpHeaders({
-        "Authorization": `Bearer ${this.token}`
-      })
-    })
-  }
-
-  ActualizarCliente(model: ClienteModel): Observable<ClienteModel> {
-    let idCiudad = 0;
-    let valor = 0;
-    if (model.CiudadId) {
-      idCiudad = parseInt(model.CiudadId.toString());
-      console.log(model);
-    }
-    if (model.TotIngresosCli) {
-      valor = parseInt(model.TotIngresosCli.toString());
-      console.log(model);
-    }
-    return this.http.put<ClienteModel>(`http://localhost:3000/clientes/${model.IdCliente}`, {
       DocumentoCli: model.DocumentoCli,
       NombreCli: model.NombreCli,
       ApellidoCli: model.ApellidoCli,
@@ -64,9 +27,9 @@ export class ClienteService {
       DImagenCli: model.DImagenCli,
       TelefonoCli: model.TelefonoCli,
       EmailCli: model.EmailCli,
-      DireccionCli: model.DireccionCli,
-      CiudadId: idCiudad,
-      TotIngresosCli: valor,
+      DireccionCLi: model.DireccionCLi,
+      ciudadId: model.ciudadId,
+      TotIngresosCli: model.TotIngresosCli,
       DatosTrabajo: model.DatosTrabajo,
       TiemTrabajoAcCli: model.TiemTrabajoAcCli,
       NombreRefFamCli: model.NombreRefFamCli,
@@ -82,7 +45,34 @@ export class ClienteService {
     })
   }
 
-  EliminarCiudad(model: ClienteModel): Observable<any> {
+  ActualizarCliente(model: ClienteModel): Observable<ClienteModel> {
+    return this.http.put<ClienteModel>(`http://localhost:3000/clientes/${model.IdCliente}`, {
+      DocumentoCli: model.DocumentoCli,
+      NombreCli: model.NombreCli,
+      ApellidoCli: model.ApellidoCli,
+      FechaNaciCli: model.FechaNaciCli,
+      DImagenCli: model.DImagenCli,
+      TelefonoCli: model.TelefonoCli,
+      EmailCli: model.EmailCli,
+      DireccionCLi: model.DireccionCLi,
+      ciudadId: model.ciudadId,
+      TotIngresosCli: model.TotIngresosCli,
+      DatosTrabajo: model.DatosTrabajo,
+      TiemTrabajoAcCli: model.TiemTrabajoAcCli,
+      NombreRefFamCli: model.NombreRefFamCli,
+      ApellidoRefFamCli: model.ApellidoRefFamCli,
+      TelefonoRefFamCli: model.TelefonoRefFamCli,
+      NombreRefPerCli: model.NombreRefPerCli,
+      ApellidoRefPerCli: model.ApellidoRefPerCli,
+      TelefonoRefPerCli: model.TelefonoRefPerCli
+    }, {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${this.token}`
+      })
+    })
+  }
+
+  EliminarCliente(model: ClienteModel): Observable<any> {
     return this.http.delete<ClienteModel>(`http://localhost:3000/clientes/${model.IdCliente}`, {
       headers: new HttpHeaders({
         "Authorization": `Bearer ${this.token}`
@@ -90,7 +80,7 @@ export class ClienteService {
     })
   }
 
-  BuscarCiudad(id: number): Observable<ClienteModel> {
+  BuscarCLiente(id: number): Observable<ClienteModel> {
     return this.http.get<ClienteModel>(`http://localhost:3000/clientes/${id}`, {
       headers: new HttpHeaders({
       })
@@ -98,7 +88,7 @@ export class ClienteService {
   }
 
   Listarclientes(): Observable<ClienteModel[]> {
-    return this.http.get<ClienteModel[]>('http://localhost:3000/clientes', {
+    return this.http.get<ClienteModel[]>('http://localhost:3000/clientes/?filter={"include":["ciudad"]}', {
       headers: new HttpHeaders({
       })
     })

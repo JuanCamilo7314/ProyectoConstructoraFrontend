@@ -1,1 +1,58 @@
-<p>crear-solicitud works!</p>
+<div id="crearCiudad" class="row">
+    <div class="card-panel">
+        <form class="crar-pais-form" [formGroup]="fgValidacion">
+            <div class="titulo">
+                <H4>Creación Solicitud</H4>
+            </div>
+            <div class="input-field col s12">
+                <label class="active">Cliente</label>
+                <select formControlName="clienteId" class="browser-default">
+                    <option *ngFor="let c of clienteListado" value="{{c.IdCliente}}">{{c.NombreCli}}</option>
+                </select>
+                <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.clienteId.errors &&(obtenerFGV.clienteId.dirty||obtenerFGV.clienteId.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+            </div>
+            <div class="input-field col s12">
+                <label class="active">Inmueble</label>
+                <select formControlName="inmuebleId" class="browser-default">
+                    <option *ngFor="let i of inmuebleListado" value="{{i.CodigoIn}}">{{i.NombreIn}}</option>
+                </select>
+                <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.inmuebleId.errors &&(obtenerFGV.inmuebleId.dirty||obtenerFGV.inmuebleId.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">date_rangey</i>
+                    <input formControlName="FechaSolicitud" class="validate" id="FechaSolicitud" type="text">
+                    <label for="FechaSolicitud" data-error="wrong" data-success="right">Fecha Solicitud</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.FechaSolicitud.errors &&(obtenerFGV.FechaSolicitud.dirty||obtenerFGV.FechaSolicitud.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">location_city</i>
+                    <input formControlName="OfertaEconomica" class="validate" id="OfertaEconomica" type="text">
+                    <label for="OfertaEconomica" data-error="wrong" data-success="right">Oferta Economica</label>
+                    <div class="mensajeValidacion"
+                        *ngIf="(obtenerFGV.OfertaEconomica.errors &&(obtenerFGV.OfertaEconomica.dirty||obtenerFGV.OfertaEconomica.touched))">
+                        <strong>Este campo es requerido.</strong>
+                    </div>
+                </div>
+            </div>
+            <p class="center-align">
+                <button (click)="GuardarRegistro()" type="button"
+                    class="crear btn waves-effect indigo darken-1 ">Crear</button>
+                &nbsp;
+                <a routerLink="/venta/solicitud/listar-solicitud" type="button"
+                    class=" btn waves-effect indigo darken-1 ">Cancelar</a>
+            </p>
+        </form>
+    </div>
+</div>
