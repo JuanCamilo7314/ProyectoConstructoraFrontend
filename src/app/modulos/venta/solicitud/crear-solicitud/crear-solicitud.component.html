@@ -15,6 +15,42 @@
                     </div>
             </div>
             <div class="input-field col s12">
+                <label class="active">Pais</label>
+                <select (change)="CargarCiudades()" formControlName="paisId" class="browser-default">
+                    <option *ngFor="let p of paisListado" value="{{p.CodigoP}}">{{p.NombreP}}</option>
+                </select>
+                <div class="mensajeValidacion"
+                    *ngIf="(obtenerFGV.paisId.errors &&(obtenerFGV.paisId.dirty||obtenerFGV.paisId.touched))">
+                    <strong>Este campo es requerido.</strong>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <label class="active" data-error="wrong" data-success="right">Ciudad</label>
+                <select (change)="CargarProyectos()" formControlName="ciudadId" class="browser-default">
+                    <option *ngFor="let c of ciudadListado" value="{{c.CodigoC}}">{{c.NombreC}}</option>
+                </select>
+                <div class="mensajeValidacion"
+                    *ngIf="(obtenerFGV.ciudadId.errors &&(obtenerFGV.ciudadId.dirty||obtenerFGV.ciudadId.touched))">
+                    <strong>Este campo es requerido.</strong>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <label class="active">Proyecto</label>
+                <select (change)="CargarBloques()" formControlName="proyectoId" class="browser-default">
+                    <option *ngFor="let p of proyectoListado" value="{{p.CodigoProy}}">{{p.NombreProy}}</option>
+                </select>
+                <div class="mensajeValidacion"
+                    *ngIf="(obtenerFGV.proyectoId.errors &&(obtenerFGV.proyectoId.dirty||obtenerFGV.proyectoId.touched))">
+                    <strong>Este campo es requerido.</strong>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <label class="active">Bloque</label>
+                <select (change)="CargarInmuebles()" formControlName="bloqueId" class="browser-default">
+                    <option *ngFor="let b of bloqueListado" value="{{b.CodigoB}}">{{b.NombreB}}</option>
+                </select>
+            </div>
+            <div class="input-field col s12">
                 <label class="active">Inmueble</label>
                 <select formControlName="inmuebleId" class="browser-default">
                     <option *ngFor="let i of inmuebleListado" value="{{i.CodigoIn}}">{{i.NombreIn}}</option>

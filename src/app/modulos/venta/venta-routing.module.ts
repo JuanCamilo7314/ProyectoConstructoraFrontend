@@ -7,6 +7,8 @@ import { ListarSolicitudComponent } from './solicitud/listar-solicitud/listar-so
 import { CrearSolicitudComponent } from './solicitud/crear-solicitud/crear-solicitud.component';
 import { EditarSolicitudComponent } from './solicitud/editar-solicitud/editar-solicitud.component';
 import { VerificadorSesionGuard } from 'src/app/guardianes/verificador-sesion.guard';
+import { CrearPagoComponent } from './pago/crear-pago/crear-pago.component';
+import { ListarPagoComponent } from './pago/listar-pago/listar-pago.component';
 
 const routes: Routes = [
   {
@@ -43,7 +45,19 @@ const routes: Routes = [
     path: 'solicitud/editar-solicitud/:id',
     component: EditarSolicitudComponent,
     canActivate:[VerificadorSesionGuard]
-  }
+  },
+
+  {
+    path: 'pago/listar-pago',
+    component: ListarPagoComponent,
+    canActivate:[VerificadorSesionGuard]
+  },
+  
+  {
+    path: 'pago/crear-pago',
+    component: CrearPagoComponent,
+    canActivate:[VerificadorSesionGuard]
+  },
 ];
 
 @NgModule({

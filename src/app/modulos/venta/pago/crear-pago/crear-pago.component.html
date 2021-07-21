@@ -1,1 +1,36 @@
-<p>crear-pago works!</p>
+<div id="crearPago" class="row">
+    <div class="card-panel">
+        <div class="titulo">
+            <H4>Pagar</H4>
+        </div>
+        <form class="crar-pais-form" [formGroup]="uploadForm">
+            <div class="row">
+                <input formControlName="File" (change)="OnFileSelect($event)" class="subir validate" id="DImagen" type="file" id="myFile" name="filename">
+                <input type="button" value="Subir" (click)="UploadImage()">
+            </div>
+        </form>
+        <form class="crear-pago-form" [formGroup]="fgValidacion">
+            <input formControlName="DImagen" type="hidden">
+            <div class="input-field col s12">
+                <label class="active">Solicitud</label>
+                <select (change)="CargarValor()" formControlName="solicitudId" class="browser-default">
+                    <option *ngFor="let s of solicitudListado" value="{{s.IdSolicitud}}">{{s.IdSolicitud}} - {{s.cliente.NombreCli}} {{s.cliente.ApellidoCli}} - {{s.inmueble.NombreIn}} </option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">attach_money</i>
+                    <input formControlName="OfertaEconomica" class="validate" id="OfertaEconomica" type="text" readonly>
+                    <label class="active" for="OfertaEconomica" data-error="wrong" data-success="right">Valor</label>
+                </div>
+            </div>
+            <p class="center-align">
+                <button (click)="GuardarRegistro()" type="button"
+                    class="crear btn waves-effect indigo darken-1 ">Crear</button>
+                &nbsp;
+                <a routerLink="/parametrizacion/pago/listar-pago" type="button"
+                    class=" btn waves-effect indigo darken-1 ">Cancelar</a>
+            </p>
+        </form>
+    </div>
+</div>

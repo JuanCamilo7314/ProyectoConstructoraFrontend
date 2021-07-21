@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { BloqueModel } from '../modelos/bloque.model';
+import { InmuebleModel } from '../modelos/inmueble.model';
 import { SecurityService } from './security.service';
 
 @Injectable({
@@ -65,6 +66,13 @@ export class BloqueService {
 
   Listarbloques(): Observable<BloqueModel[]>{
     return this.http.get<BloqueModel[]>('http://localhost:3000/bloques/?filter={"include":["proyecto"]}',{
+      headers: new HttpHeaders({
+      })
+    })
+  }
+
+  ListarInmueblePorBloque(id: number): Observable<InmuebleModel[]> {
+    return this.http.get<InmuebleModel[]>(`http://localhost:3000/bloques/${id}/inmuebles`, {
       headers: new HttpHeaders({
       })
     })

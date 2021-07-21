@@ -18,7 +18,6 @@ export class SolicitudService {
   }
 
   CrearSolicitud(model: SolicitudModel): Observable<SolicitudModel> {
-    alert(model.usuarioId)
     return this.http.post<SolicitudModel>('http://localhost:3000/solicitud', {
       clienteId: model.clienteId,
       inmuebleId: model.inmuebleId,
@@ -64,10 +63,9 @@ export class SolicitudService {
   }
 
   Listarsolicitud(): Observable<SolicitudModel[]> {
-    return this.http.get<SolicitudModel[]>('http://localhost:3000/solicitud', {
+    return this.http.get<SolicitudModel[]>('http://localhost:3000/solicitud/?filter={"include":["cliente","inmueble"]}', {
       headers: new HttpHeaders({
       })
     })
   }
-
 }

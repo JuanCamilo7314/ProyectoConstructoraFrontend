@@ -10,17 +10,22 @@
         <thead>
             <th>Id</th>
             <th>Cliente</th>
-            <th>Usuario</th>
             <th>Inmueble</th>
             <th>Fecha Solicitud</th>
-            <th>OfertaEconomica</th>
-            <th>EstadoSolicitud</th>
-            <th>Acciones</th>
+            <th>Oferta</th>
+            <th>Estado</th>
+            <th class="acciones">Acciones</th>
         </thead>
         <tbody>
             <tr *ngFor="let r of listaRegistros | paginate: { itemsPerPage: 4, currentPage: pagina }">
                 <td>
                     {{r.IdSolicitud}}
+                </td>
+                <td>
+                    {{r.cliente.NombreCli}} {{r.cliente.ApellidoCli}}
+                </td>
+                <td>
+                    {{r.inmueble.NombreIn}}
                 </td>
                 <td>
                     {{r.FechaSolicitud}}
@@ -32,11 +37,11 @@
                     {{r.EstadoSolicitud}}
                 </td>
                 <td>
-                    <a class="btn waves-effect indigo darken-1"
+                    <a class="editar btn waves-effect indigo darken-1"
                         routerLink="/venta/solicitud/editar-solicitud/{{r.IdSolicitud}}"><i class="material-icons left">
                             edit</i>Editar Registro</a>
                             &nbsp; &nbsp; &nbsp; 
-                    <button type="button" (click)="VerificarEliminacion(r.IdSolicitud)" class="btn waves-effect indigo darken-1"
+                    <button type="button" (click)="VerificarEliminacion(r.IdSolicitud)" class="eliminar btn waves-effect indigo darken-1"
                         routerLink="/venta/solicitud/listar-solicitud"><i class="material-icons left">
                             delete</i>Eliminar Registro</button>
                 </td>
