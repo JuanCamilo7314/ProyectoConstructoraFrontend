@@ -87,19 +87,19 @@ export class CrearPagoComponent implements OnInit {
   CargarSolicitudes() {
     this.serviceSolicitud.Listarsolicitud().subscribe(
       (datos) => {
-        let xxxx: SolicitudModel[] = [];
         this.solicitudListado = datos.filter(x => x.EstadoSolicitud == "Aceptada");
-        for (let index = 0; index < this.solicitudListado.length; index++) {
-          for (let x = 0; x < this.pagosListado.length; x++) {
-            if (this.solicitudListado[index].IdSolicitud == this.pagosListado[x].solicitudCliId) {
-              alert("eliminada")
-            }else{
-              xxxx.push(this.solicitudListado[index]); 
-            }
+        let xxxx: SolicitudModel[] = [];
+        for (let i = 0; i < this.solicitudListado.length; i++) {
+          let igual = false;
+          for (let j = 0; j < this.pagosListado.length && !igual; j++) {
+            if (this.solicitudListado[i]['IdSolicitud'] == this.pagosListado[j]['solicitudCliId'])
+              igual = true;
           }
+          if (!igual) xxxx.push(this.solicitudListado[i]);
+          console.log(this.solicitudListado[i])
         }
         console.log(xxxx)
-        this.solicitudListado=xxxx;
+        this.solicitudListado = xxxx;
       },
       (error) => {
         alert("Error al obtener listado de solicitudes")

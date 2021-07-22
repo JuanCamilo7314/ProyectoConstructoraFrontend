@@ -1,36 +1,42 @@
 <br />
-<label for="">asdf</label>
+<h1>Seleccione un Cliente: </h1>
+<form class="crar-pais-form" [formGroup]="fgValidacion">
+    <div class="input-field col s12">
+        <label class="active" data-error="wrong" data-success="right">Cliente</label>
+        <select (change)="CargarSolicitudes()" formControlName="clienteId" class="browser-default">
+            <option *ngFor="let c of listarClientes" value="{{c.IdCliente}}">{{c.NombreCli}}</option>
+        </select>
+        <div class="mensajeValidacion"
+            *ngIf="(obtenerFGV.clienteId.errors &&(obtenerFGV.clienteId.dirty||obtenerFGV.clienteId.touched))">
+            <strong>Este campo es requerido.</strong>
+        </div>
+    </div>
+</form>
 <div class="tabla">
     <table class="table table-responsive striped ">
         <thead>
-            <th>Id</th>
-            <th>Solicitud</th>
-            <th>Recibo</th>
-            <th>Acciones</th>
+            <th>Inmueble</th>
+            <th>Valor</th>
+            <th>Imagen</th>
         </thead>
         <tbody>
             <tr *ngFor="let r of listaRegistros | paginate: { itemsPerPage: 4, currentPage: pagina }">
                 <td>
-                    {{r.id}}
+                    {{r.Inmueble}}
                 </td>
                 <td>
-                    {{r.solicitudCliId}}
+                    {{r.valor}}
                 </td>
                 <td>
-                    {{r.imagenRecibo}}
-                </td>
-                <td>
-                    <button type="button" (click)="VerificarEliminacion(r.id)" class="btn waves-effect indigo darken-1"
-                        routerLink="/venta/pago/listar-pago"><i class="material-icons left">
-                            delete</i>Eliminar Registro</button>
+                    {{r.imagen}}
                 </td>
             </tr>
-
         </tbody>
     </table>
 </div>
 <pagination-controls (pageChange)="pagina = $event" 
-                      previousLabel="Anterior" nextLabel="Siguiente"
+                      previousLabel="Anterior" 
+                      nextLabel="Siguiente"
                       screenReaderPaginationLabel="Pagination" 
                       screenReaderPageLabel="Página">
 </pagination-controls>

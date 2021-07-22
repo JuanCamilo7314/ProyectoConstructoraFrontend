@@ -1,0 +1,54 @@
+<br>
+<div class="titulo">
+    <h4>INFORME DE VENTAS</h4>
+</div>
+
+<br>
+<div class="tabla">
+    <table class="table table-responsive striped ">
+        <thead>
+            <th>Id</th>
+            <th>Cliente</th>
+            <th>Inmueble</th>
+            <th>Fecha Solicitud</th>
+            <th>Oferta</th>
+            <th>Estado</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of listaRegistros | paginate: { itemsPerPage: 5, currentPage: pagina }">
+                <td>
+                    {{r.IdSolicitud}}
+                </td>
+                <td>
+                    {{r.cliente.NombreCli}} {{r.cliente.ApellidoCli}}
+                </td>
+                <td>
+                    {{r.inmueble.NombreIn}}
+                </td>
+                <td>
+                    {{r.FechaSolicitud}}
+                </td>
+                <td>
+                    {{r.OfertaEconomica}}
+                </td>
+                <td>
+                    {{r.EstadoSolicitud}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<pagination-controls  (pageChange)="pagina = $event"
+                      previousLabel="Anterior"
+                      nextLabel="Siguiente"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="Página">
+</pagination-controls>
+
+<div id="divgraficaEstados">
+    <canvas id="myChart"></canvas>
+</div>
+
+<br>
+
+

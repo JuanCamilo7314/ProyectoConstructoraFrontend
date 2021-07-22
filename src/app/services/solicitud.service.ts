@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SecurityService } from './security.service';
 import { SolicitudModel } from '../modelos/solicitud.model';
+import { PagoModel } from '../modelos/pago.model';
 
 @Injectable({
   providedIn: 'root'
@@ -68,4 +69,12 @@ export class SolicitudService {
       })
     })
   }
+
+  ListarPagodeSolicitud(id: any): Observable<PagoModel> {
+    return this.http.get<PagoModel>(`http://localhost:3000/solicitud-clis/${id}/pagos`, {
+      headers: new HttpHeaders({
+      })
+    })
+  }
+
 }
