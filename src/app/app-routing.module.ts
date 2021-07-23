@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './publico/errores/error404/error404.component';
+import { InicioProyectoComponent } from './publico/inicio-proyecto/inicio-proyecto.component';
 import { InicioComponent } from './publico/inicio/inicio.component';
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: '',
     component: InicioComponent
+  },
+  {
+    path: 'inicio-proyecto/:id',
+    component: InicioProyectoComponent
   },
   {
     path: 'seguridad',

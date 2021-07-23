@@ -14,7 +14,7 @@
             <th>Apellido</th>
             <th>Email</th>
             <th>Telefono</th>
-            <th>Direccion</th>
+            <th>Imagen</th>
             <th>Ciudad</th>
             <th>Acciones</th>
         </thead>
@@ -44,7 +44,7 @@
                 <td>
                     {{r.ciudad.NombreC}}
                 </td>
-                <td>
+                <td class="opciones">
                     <a class="editar btn waves-effect indigo darken-1"
                         routerLink="/venta/cliente/editar-cliente/{{r.IdCliente}}"><i class="material-icons left">
                             edit</i>Editar Registro</a>

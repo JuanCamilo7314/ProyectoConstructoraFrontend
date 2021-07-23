@@ -1,0 +1,50 @@
+<br>
+<div id="listarCiudad" class="row">
+    <div class="card-panel">
+        <div class="row">
+            <div>
+                <H4 class="titulo">{{NombreProy}}</H4>
+            </div>
+            <div class="col s12">
+                <img class="imagen" src="http://localhost:3000/files/1/{{DImagen}}" alt="">
+                <h6 class="nombrecp">( {{NombreP}} - {{NombreC}} )</h6>
+            </div>
+            <div class="input-field col s12">
+                <h6 class="desc">{{DescripcionProy}}</h6>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+<h5 class="nombrecp">Inmuebles</h5>
+<div class="tabla">
+    <table class="table table-responsive striped ">
+        <thead>
+            <th>Identificador</th>
+            <th>Nombre</th>
+            <th>Bloque</th>
+            <th>Valor</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of inmueblesProyecto | paginate: { itemsPerPage: 4, currentPage: pagina }">
+                <td>
+                    {{r.Identificador}}
+                </td>
+                <td>
+                    {{r.NombreIn}}
+                </td>
+                <td>
+                    {{r.bloque.NombreB}}
+                </td>
+                <td>
+                    {{r.ValorIn}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior" nextLabel="Siguiente"
+    screenReaderPaginationLabel="Pagination" screenReaderPageLabel="Página">
+</pagination-controls>
+<input formControlName="id" class="validate" id="id" type="hidden">

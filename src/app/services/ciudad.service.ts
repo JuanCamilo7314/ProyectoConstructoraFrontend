@@ -73,7 +73,7 @@ export class CiudadService {
     })
   }
 
-  ListarPaisDeUnaCiudad(id: number): Observable<PaisModel> {
+  ListarPaisDeUnaCiudad(id: any): Observable<PaisModel> {
     return this.http.get<PaisModel>(`http://localhost:3000/ciudads/${id}/pais`, {
       headers: new HttpHeaders({
       })

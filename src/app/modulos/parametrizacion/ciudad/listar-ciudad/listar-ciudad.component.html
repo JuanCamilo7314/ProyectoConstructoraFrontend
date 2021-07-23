@@ -18,18 +18,18 @@
                 <td>
                     {{r.CodigoC}}
                 </td>
-                <td>
+                <td class="nombre">
                     {{r.NombreC}}
                 </td>
-                <td>
+                <td class="pais">
                     {{r.pais.NombreP}}
                 </td>
                 <td>
-                    <a class="btn waves-effect indigo darken-1"
+                    <a class="editar btn waves-effect indigo darken-1"
                         routerLink="/parametrizacion/ciudad/editar-ciudad/{{r.CodigoC}}"><i class="material-icons left">
                             edit</i>Editar Registro</a>
                             &nbsp; &nbsp; &nbsp; 
-                    <button type="button" (click)="VerificarEliminacion(r.CodigoC, r.NombreC)" class="btn waves-effect indigo darken-1"
+                    <button type="button" (click)="VerificarEliminacion(r.CodigoC, r.NombreC)" class="eliminar btn waves-effect indigo darken-1"
                         routerLink="/parametrizacion/ciudad/listar-ciudad"><i class="material-icons left">
                             delete</i>Eliminar Registro</button>
                 </td>

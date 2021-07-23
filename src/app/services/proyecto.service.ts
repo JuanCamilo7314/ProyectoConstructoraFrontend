@@ -64,7 +64,7 @@ export class ProyectoService {
   }
 
   BuscarProyecto(id: number): Observable<ProyectoModel> {
-    return this.http.get<ProyectoModel>(`http://localhost:3000/proyectos/${id}`, {
+    return this.http.get<ProyectoModel>(`http://localhost:3000/proyectos/${id}/?filter={"include":["ciudad"]}`, {
       headers: new HttpHeaders({
       })
     })

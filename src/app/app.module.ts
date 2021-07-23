@@ -9,6 +9,8 @@ import { PiePaginaComponent } from './publico/paginaMaestra/pie-pagina/pie-pagin
 import { InicioComponent } from './publico/inicio/inicio.component';
 import { Error404Component } from './publico/errores/error404/error404.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InicioProyectoComponent } from './publico/inicio-proyecto/inicio-proyecto.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -19,11 +21,13 @@ import { HttpClientModule } from '@angular/common/http';
     PiePaginaComponent,
     InicioComponent,
     Error404Component,
+    InicioProyectoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

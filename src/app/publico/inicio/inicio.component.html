@@ -9,13 +9,15 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title">{{r.NombreProy}}</span>
-                        <p>{{r.DescripcionProy}}</p>
+                        <div class="text">
+                            <p>{{r.DescripcionProy}}</p>
+                        </div>
+                        
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
+                        <a routerLink="/inicio-proyecto/{{r.CodigoProy}}">Conoce Mas...</a>
                     </div>
                 </div>
-                
             </div>
             <br>
         </div>

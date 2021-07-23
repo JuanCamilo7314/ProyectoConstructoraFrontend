@@ -9,7 +9,15 @@
 .editar{
     width: 200px;
 }
-
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 6em;
+    line-height: 3em;
+  }
 @media(max-width:700px){
     table, thead, tbody, th, td, tr {
         display: block;

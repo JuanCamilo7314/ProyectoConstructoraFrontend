@@ -13,6 +13,10 @@
     width: 100%;
 }
 
+.opciones{
+    width: 200px;
+}
+
 @media(max-width:700px){
     table, thead, tbody, th, td, tr {
         display: block;
@@ -72,7 +76,7 @@ tr:nth-child(odd) {
     td:nth-of-type(4):before { content: "Apellido";font-weight: bold; }
     td:nth-of-type(5):before { content: "Email";font-weight: bold; }
     td:nth-of-type(6):before { content: "Telefono";font-weight: bold; }
-    td:nth-of-type(6):before { content: "Direccion";font-weight: bold; }
+    td:nth-of-type(6):before { content: "Imagen";font-weight: bold; }
     td:nth-of-type(6):before { content: "Ciudad";font-weight: bold; }
     td:nth-of-type(6):before { content: "Acciones";font-weight: bold; }
 }

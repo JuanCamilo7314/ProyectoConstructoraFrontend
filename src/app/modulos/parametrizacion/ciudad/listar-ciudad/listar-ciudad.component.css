@@ -5,3 +5,14 @@
 .agregar{
     padding-bottom: 10px;
 }
+
+
+@media(max-width:700px){
+   .editar{
+       width: 100%;
+   }
+
+   .eliminar{
+       width: 100%;
+   }
+}
