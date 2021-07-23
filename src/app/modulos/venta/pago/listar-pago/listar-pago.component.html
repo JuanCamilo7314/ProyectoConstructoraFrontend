@@ -1,5 +1,8 @@
 <br />
-<h1>Seleccione un Cliente: </h1>
+<div class="titulo">
+    <h4>INFORME DE PAGOS POR CLIENTE</h4>
+</div>
+<strong>Seleccione un Cliente: </strong>
 <form class="crar-pais-form" [formGroup]="fgValidacion">
     <div class="input-field col s12">
         <label class="active" data-error="wrong" data-success="right">Cliente</label>
@@ -34,9 +37,12 @@
         </tbody>
     </table>
 </div>
-<pagination-controls (pageChange)="pagina = $event" 
-                      previousLabel="Anterior" 
-                      nextLabel="Siguiente"
-                      screenReaderPaginationLabel="Pagination" 
-                      screenReaderPageLabel="Página">
+<pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior" nextLabel="Siguiente"
+    screenReaderPaginationLabel="Pagination" screenReaderPageLabel="Página">
 </pagination-controls>
+
+<div id="divgraficaEstados">
+    <canvas id="myChart"></canvas>
+</div>
+
+<br>

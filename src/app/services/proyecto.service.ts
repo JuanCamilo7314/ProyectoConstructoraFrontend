@@ -86,7 +86,7 @@ export class ProyectoService {
     })
   }
 
-  ListarBloquePorProyecto(id: number): Observable<BloqueModel[]> {
+  ListarBloquePorProyecto(id: any): Observable<BloqueModel[]> {
     return this.http.get<BloqueModel[]>(`http://localhost:3000/proyectos/${id}/bloques`, {
       headers: new HttpHeaders({
       })

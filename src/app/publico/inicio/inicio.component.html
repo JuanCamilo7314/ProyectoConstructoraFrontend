@@ -1,1 +1,23 @@
-<h1>hola :(</h1>
+<br>
+<div>
+    <div class="row justify-content-between">
+        <div class="col s12 cards-container">
+            <div *ngFor="let r of listaRegistros" class="card">
+                <div class="">
+                    <div class="card-image">
+                        <img class="card-img" src="http://localhost:3000/files/1/{{r.DImagen}}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">{{r.NombreProy}}</span>
+                        <p>{{r.DescripcionProy}}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+                
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

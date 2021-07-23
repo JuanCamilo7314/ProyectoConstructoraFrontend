@@ -167,15 +167,19 @@ export class CrearSolicitudComponent implements OnInit {
       obj.usuarioId = usuariostorage.user.IdUsuario
       console.log(obj);
       let estadosEspera = 0;
+      let estadoAceptado = 0;
 
       for (let index = 0; index < this.solicitudesListado.length; index++) {
         if (this.solicitudesListado[index].inmuebleId == obj.inmuebleId) {
           if (this.solicitudesListado[index].EstadoSolicitud == "espera") {
             estadosEspera++;
           }
+          if (this.solicitudesListado[index].EstadoSolicitud == "Aceptada") {
+            estadoAceptado++;
+          }
         }
       }
-      if(estadosEspera == 0){
+      if (estadosEspera == 0 && estadoAceptado == 0) {
         this.service.CrearSolicitud(obj).subscribe(
           (datos) => {
             alert("Registro guardado");
@@ -184,9 +188,13 @@ export class CrearSolicitudComponent implements OnInit {
           (error) => {
             alert("Error al guardar un registro");
           });
-      }else{
+      } if (estadosEspera > 0) {
         alert("Ese inmueble ya tiene una solicitud y se encuentra en estado de ESPERA")
-              this.router.navigate(["/venta/solicitud/listar-solicitud"]);
+        this.router.navigate(["/venta/solicitud/listar-solicitud"]);
+      }
+      if (estadoAceptado > 0) {
+        alert("Ese inmueble ya fue VENDIDO :(")
+        this.router.navigate(["/venta/solicitud/listar-solicitud"]);
       }
     }
   }

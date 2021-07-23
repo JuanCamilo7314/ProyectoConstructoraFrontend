@@ -80,7 +80,7 @@ export class CiudadService {
     })
   }
 
-  ListarProyectosPorCiudad(id: number): Observable<ProyectoModel[]> {
+  ListarProyectosPorCiudad(id: any): Observable<ProyectoModel[]> {
     return this.http.get<ProyectoModel[]>(`http://localhost:3000/ciudads/${id}/proyectos`, {
       headers: new HttpHeaders({
       })

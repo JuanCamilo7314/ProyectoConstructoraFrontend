@@ -1,0 +1,28 @@
+
+.card-title{
+    font-weight: bold;
+    color: black;
+}
+
+.tarjeta{
+    background-color: white;
+}
+
+.card-img {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+}
+
+.card {
+    display: inline-block;
+    overflow: visible;
+}
+
+.cards-container{
+  column-count: 2;
+}
+
+.text-center {
+  text-align: center;
+}
